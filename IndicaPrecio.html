@@ -2,54 +2,54 @@
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Indica tu Precio | EcoStayRD</title>
-    <!-- Archivo de estilos externo -->
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Indica un precio | EcoStayRD</title>
+    <!-- Enlace a la hoja de estilos -->
     <link rel="stylesheet" href="css/indicapreciostyle.css" />
   </head>
   <body>
-    <!-- ENCABEZADO -->
-    <header class="header">
-      <div class="header-container">
-        <!-- LOGO (ajusta la ruta según tu proyecto) -->
+    <!-- CABECERA -->
+    <header class="navbar">
+      <div class="navbar-container">
         <img
           src="assets/logooo.png"
           alt="Logo EcoStayRD"
-          class="logo"
+          class="leaf-logo"
           loading="lazy"
         />
-
-        <!-- Botón Salir -->
-        <button class="btn-exit" aria-label="Salir de esta sección">Salir</button>
+        <button class="btn-exit" aria-label="Salir">Salir</button>
       </div>
     </header>
 
     <!-- CONTENEDOR PRINCIPAL -->
     <main class="price-page">
-      <!-- TÍTULOS PRINCIPALES -->
-      <section class="price-header">
+      <!-- CARD CENTRAL -->
+      <div class="price-card">
         <h1>Estás más cerca, indica un precio</h1>
-        <p>Este valor puedes cambiarlo después si lo deseas</p>
-      </section>
+        <p class="subtitle">
+          Este valor puedes cambiarlo después si lo deseas
+        </p>
 
-      <!-- CONTENEDOR DE PRECIO E INFORMACIÓN -->
-      <section class="price-content">
-        <!-- COLUMNA IZQUIERDA: INPUT DE PRECIO -->
-        <div class="price-input-box">
-          <div class="price-input-container">
-            <span class="dollar-sign" aria-hidden="true">$</span>
+        <!-- SECCIÓN DEL INPUT DE PRECIO -->
+        <div class="price-input-section">
+          <div class="price-wrapper">
+            <span class="large-dollar" aria-hidden="true">$</span>
             <textarea
-              class="price-input"
+              class="price-textarea"
               aria-label="Introduce el precio"
               placeholder="0"
             ></textarea>
           </div>
-          <p class="price-guest">
-            Precio para el huésped (sin impuestos): <span class="amount">$000.00</span>
+          <p class="price-huesped">
+            Precio para el huésped (sin impuestos):
+            <span class="price-amount">$000.00</span>
           </p>
         </div>
 
-        <!-- COLUMNA DERECHA: DETALLE DE COSTOS -->
+        <!-- DESGLOSE DE COSTOS -->
         <div class="price-breakdown">
           <ul>
             <li>
@@ -70,13 +70,17 @@
             </li>
           </ul>
         </div>
-      </section>
 
-      <!-- BOTÓN SIGUIENTE -->
-      <div class="price-footer">
-        <button class="btn-next" type="button" aria-label="Pasar al siguiente paso">
-          Siguiente
-        </button>
+        <!-- BOTÓN SIGUIENTE -->
+        <div class="btn-next-container">
+          <button
+            type="button"
+            class="btn-next"
+            aria-label="Siguiente paso"
+          >
+            Siguiente
+          </button>
+        </div>
       </div>
     </main>
   </body>

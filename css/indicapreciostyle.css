@@ -1,223 +1,236 @@
 /* ===============================
-   VARIABLES Y ESTILOS BASE
+   1) VARIABLES Y RESET
 =============================== */
 :root {
-    /* Colores aproximados basados en el gradiente verde oscuro */
-    --color-bg-start: #0b3e2e;
-    --color-bg-end: #084f38;
-    --color-accent: #0ec383;    /* Botones y detalles */
-    --color-text: #ffffff;
-    --color-card: #172e23;      /* Tarjeta/Background intermedio */
-    --color-button-hover: #10ad70;
-  
-    --font-family: "Poppins", sans-serif;
-  
-    --spacing-sm: 0.5rem;
-    --spacing-md: 1rem;
-    --spacing-lg: 2rem;
-  
-    --radius-base: 0.75rem;
-    --transition-base: 0.3s;
-  
-    --max-width: 1200px;
-  }
-  
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  body {
-    font-family: var(--font-family);
-    background: linear-gradient(
-      135deg,
-      var(--color-bg-start) 0%,
-      var(--color-bg-end) 100%
-    );
-    color: var(--color-text);
-    min-height: 100vh;
-    display: flex;
+  /* Gradiente verde oscuro */
+  --color-bg-start: #072720;
+  --color-bg-end: #116b51;
+
+  /* Fondo card y bordes */
+  --color-card: #11412e;
+  --color-border: #156f4d;
+  --color-text: #ffffff;
+  --color-accent: #0ec383;
+
+  --font-family: "Poppins", sans-serif;
+
+  /* Espaciados */
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 2rem;
+
+  /* Radios y transiciones */
+  --radius-base: 1rem;
+  --transition-base: 0.3s;
+
+  --max-width: 1200px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  border: none;
+}
+
+body {
+  font-family: var(--font-family);
+  background: linear-gradient(
+    135deg,
+    var(--color-bg-start) 0%,
+    var(--color-bg-end) 100%
+  );
+  color: var(--color-text);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+/* ===============================
+   2) NAVBAR
+=============================== */
+.navbar {
+  width: 100%;
+  padding: var(--spacing-md);
+  /* Podrías usar un background-image si lo deseas */
+}
+
+.navbar-container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.leaf-logo {
+  width: 60px;
+  height: auto;
+}
+
+.btn-exit {
+  background-color: rgba(255, 255, 255, 0.15);
+  color: var(--color-text);
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-base);
+  cursor: pointer;
+  transition: background var(--transition-base);
+}
+
+.btn-exit:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+/* ===============================
+   3) CONTENEDOR PRINCIPAL
+=============================== */
+.price-page {
+  flex: 1;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;     /* Centra verticalmente */
+  justify-content: center; /* Centra horizontalmente */
+  padding: var(--spacing-lg) var(--spacing-md);
+}
+
+/* CARD */
+.price-card {
+  background-color: var(--color-card);
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-base);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  padding: var(--spacing-lg);
+  width: 100%;
+  max-width: 700px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+}
+
+/* TÍTULO */
+.price-card h1 {
+  font-size: 2rem;
+  text-align: center;
+  font-weight: 600;
+}
+
+/* SUBTÍTULO */
+.subtitle {
+  font-size: 1.1rem;
+  text-align: center;
+  opacity: 0.85;
+}
+
+/* ===============================
+   4) SECCIÓN INPUT DE PRECIO
+=============================== */
+.price-input-section {
+  text-align: center;
+}
+
+.price-wrapper {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.large-dollar {
+  font-size: 5rem;
+  font-weight: 600;
+}
+
+.price-textarea {
+  width: 180px;
+  height: 100px;
+  background: transparent;
+  border-bottom: 2px solid var(--color-text);
+  font-size: 4rem;
+  font-weight: 600;
+  color: var(--color-text);
+  text-align: center;
+  resize: none;
+  outline: none;
+}
+
+/* Texto de “Precio para el huésped…” */
+.price-huesped {
+  margin-top: var(--spacing-sm);
+  font-size: 1rem;
+  opacity: 0.9;
+}
+
+.price-huesped .price-amount {
+  font-weight: 600;
+  margin-left: 0.3rem;
+}
+
+/* ===============================
+   5) DESGLOSE DE COSTOS
+=============================== */
+.price-breakdown {
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-base);
+  padding: var(--spacing-md);
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.price-breakdown ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.price-breakdown li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  padding-bottom: 0.5rem;
+}
+
+/* ===============================
+   6) BOTÓN SIGUIENTE
+=============================== */
+.btn-next-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btn-next {
+  background-color: var(--color-accent);
+  color: var(--color-text);
+  border: none;
+  padding: 0.8rem 2rem;
+  border-radius: var(--radius-base);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background var(--transition-base);
+}
+
+.btn-next:hover {
+  background-color: #10ad70;
+}
+
+/* ===============================
+   7) RESPONSIVIDAD
+=============================== */
+@media (max-width: 768px) {
+  .price-wrapper {
     flex-direction: column;
   }
-  
-  /* ===============================
-     HEADER
-  =============================== */
-  .header {
-    width: 100%;
-    background-color: transparent;
-    padding: var(--spacing-md) var(--spacing-md) 0;
-  }
-  
-  .header-container {
-    max-width: var(--max-width);
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding-bottom: var(--spacing-md);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-  }
-  
-  .logo {
-    width: 48px;
-    height: auto;
-  }
-  
-  .btn-exit {
-    background-color: transparent;
-    color: var(--color-text);
-    border: 1px solid rgba(255, 255, 255, 0.5);
-    padding: 0.5rem 1rem;
-    border-radius: var(--radius-base);
-    font-size: 0.9rem;
-    cursor: pointer;
-    transition: background var(--transition-base);
-  }
-  
-  .btn-exit:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-  }
-  
-  /* ===============================
-     MAIN CONTAINER
-  =============================== */
-  .price-page {
-    width: 100%;
-    max-width: var(--max-width);
-    margin: 0 auto;
-    padding: var(--spacing-lg) var(--spacing-md);
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-lg);
-    flex: 1;
-  }
-  
-  /* TÍTULOS PRINCIPALES */
-  .price-header {
-    text-align: center;
-  }
-  
-  .price-header h1 {
-    font-size: 1.6rem;
-    margin-bottom: var(--spacing-sm);
-    font-weight: 600;
-  }
-  
-  .price-header p {
-    font-size: 1rem;
-    opacity: 0.85;
-  }
-  
-  /* ===============================
-     SECCIÓN DE PRECIO E INFORMACIÓN
-  =============================== */
-  .price-content {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: var(--spacing-lg);
-  }
-  
-  @media (min-width: 768px) {
-    .price-content {
-      grid-template-columns: 2fr 1fr;
-    }
-  }
-  
-  /* COLUMNA IZQUIERDA: INPUT DE PRECIO */
-  .price-input-box {
-    background-color: var(--color-card);
-    padding: var(--spacing-lg);
-    border-radius: var(--radius-base);
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-md);
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-  }
-  
-  .price-input-container {
-    position: relative;
-    display: inline-flex;
-    align-items: center;
-  }
-  
-  .dollar-sign {
+  .large-dollar,
+  .price-textarea {
     font-size: 3rem;
-    font-weight: 600;
-    margin-right: var(--spacing-sm);
   }
-  
-  .price-input {
-    width: 150px;
-    height: 80px;
-    background: transparent;
-    border: none;
-    border-bottom: 1px solid var(--color-text);
-    color: var(--color-text);
-    font-size: 2.5rem;
-    font-weight: 600;
-    text-align: center;
-    resize: none; /* Deshabilita el cambio de tamaño manual */
-    outline: none;
-  }
-  
-  .price-guest {
-    font-size: 0.95rem;
-    opacity: 0.9;
-  }
-  
-  .price-guest .amount {
-    font-weight: 600;
-    margin-left: 0.2rem;
-  }
-  
-  /* COLUMNA DERECHA: DETALLE DE COSTOS */
-  .price-breakdown {
-    background-color: var(--color-card);
-    border-radius: var(--radius-base);
-    padding: var(--spacing-lg);
-  }
-  
-  .price-breakdown ul {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-sm);
-  }
-  
-  .price-breakdown li {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 1rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    padding-bottom: 0.5rem;
-  }
-  
-  /* ===============================
-     FOOTER: BOTÓN SIGUIENTE
-  =============================== */
-  .price-footer {
-    display: flex;
-    justify-content: flex-end;
-  }
-  
-  .btn-next {
-    background-color: var(--color-accent);
-    color: var(--color-text);
-    border: none;
-    padding: var(--spacing-md) var(--spacing-lg);
-    border-radius: var(--radius-base);
-    cursor: pointer;
-    font-size: 1rem;
-    font-weight: 600;
-    transition: background var(--transition-base);
-  }
-  
-  .btn-next:hover {
-    background-color: var(--color-button-hover);
-  }
-  
+}
