@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Página de Perfil - EcoStayRD</title>
+    <!-- Importa la fuente Poppins -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Archivo CSS externo -->
+    <link rel="stylesheet" href="css/perfilstyle.css" />
+  </head>
+  <body>
+    <!-- =======================================================
+         HEADER / NAVBAR (Landing Page)
+    ======================================================= -->
+    <header>
+      <div class="navbar">
+        <div class="navbar-logo">
+          <!-- Logo (ajusta la ruta de la imagen según corresponda) -->
+          <img src="assets/logooo.png" alt="EcoStayRD Logo" />
+          <span>EcoStayRD</span>
+        </div>
+        <nav class="navbar-menu">
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About us</a></li>
+            <li><a href="login1.html">Iniciar sesión / Registrarse</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- =======================================================
+         MAIN CONTENT: Perfil
+    ======================================================= -->
+    <main>
+      <div class="profile-wrapper">
+        <!-- SIDEBAR DEL PERFIL -->
+        <aside class="profile-sidebar">
+          <div class="profile-avatar" aria-hidden="true">
+            <!-- Ícono de usuario genérico (puedes reemplazarlo por una imagen) -->
+            <span>?</span>
+          </div>
+          <h3>Anonymous</h3>
+          <p class="profile-info">Lorem ipsum data?</p>
+          <!-- Menú de secciones -->
+          <div class="profile-menu">
+            <a href="#" class="active">Información Personal</a>
+            <a href="#">Favoritos</a>
+            <a href="#">Historial</a>
+          </div>
+        </aside>
+
+        <!-- CONTENIDO PRINCIPAL DE PERFIL -->
+        <section class="profile-main">
+          <h2>Información Personal</h2>
+          <!-- FORMULARIO DE INFORMACIÓN PERSONAL -->
+          <form
+            class="profile-form"
+            action="#"
+            method="post"
+            aria-label="Formulario de datos personales"
+          >
+            <!-- Nombre -->
+            <div class="form-field">
+              <label for="nombre">Nombre</label>
+              <input
+                type="text"
+                id="nombre"
+                name="nombre"
+                placeholder="Juan"
+                value="Juan"
+                aria-label="Nombre"
+              />
+            </div>
+
+            <!-- Apellido -->
+            <div class="form-field">
+              <label for="apellido">Apellido</label>
+              <input
+                type="text"
+                id="apellido"
+                name="apellido"
+                placeholder="Perez"
+                value="Perez"
+                aria-label="Apellido"
+              />
+            </div>
+
+            <!-- Fecha de Nacimiento -->
+            <div class="form-field">
+              <label for="fecha-nacimiento">Fecha de Nacimiento</label>
+              <input
+                type="text"
+                id="fecha-nacimiento"
+                name="fecha-nacimiento"
+                placeholder="10/10/1986"
+                value="10/10/1986"
+                aria-label="Fecha de Nacimiento"
+              />
+            </div>
+
+            <!-- Celular -->
+            <div class="form-field">
+              <label for="celular">Celular</label>
+              <input
+                type="tel"
+                id="celular"
+                name="celular"
+                placeholder="+1 809-704-3246"
+                value="+1 809-704-3246"
+                aria-label="Celular"
+              />
+            </div>
+
+            <!-- País (incluye bandera) -->
+            <div class="form-field">
+              <label for="pais">País</label>
+              <div class="flag-container">
+                <img
+                  src="https://via.placeholder.com/24x16/0000ff/ffffff?text=RD"
+                  alt="Bandera de República Dominicana"
+                />
+                <input
+                  type="text"
+                  id="pais"
+                  name="pais"
+                  placeholder="República Dominicana"
+                  value="República Dominicana"
+                  aria-label="País"
+                />
+              </div>
+            </div>
+
+            <!-- Correo Electrónico -->
+            <div class="form-field">
+              <label for="correo">Correo Electrónico</label>
+              <input
+                type="email"
+                id="correo"
+                name="correo"
+                placeholder="email@example.com"
+                value="email@example.com"
+                aria-label="Correo Electrónico"
+              />
+            </div>
+
+            <!-- Contraseña -->
+            <div class="form-field">
+              <label for="contrasena">Contraseña</label>
+              <input
+                type="password"
+                id="contrasena"
+                name="contrasena"
+                placeholder="********"
+                value="********"
+                aria-label="Contraseña"
+              />
+            </div>
+          </form>
+        </section>
+      </div>
+    </main>
+
+    <!-- =======================================================
+         FOOTER
+    ======================================================= -->
+    <footer>
+      <p>© 2025 EcoStayRD. Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- Se puede agregar JavaScript adicional si se necesita -->
+    <script>
+      // Aquí puedes agregar lógica JS para mejorar la interactividad
+    </script>
+  </body>
+</html>

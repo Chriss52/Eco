@@ -1,302 +1,327 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Remixicon -->
     <link
       href="https://cdn.jsdelivr.net/npm/remixicon@3.4.0/fonts/remixicon.css"
       rel="stylesheet"
     />
+    <!-- Material Symbols -->
     <link
-      rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+      rel="stylesheet"
     />
+    <!-- Estilo personalizado -->
     <link rel="stylesheet" href="css/style.css" />
     <title>EcoStayRD</title>
   </head>
   <body>
-    <nav>
-      <!-- <img src="assets/logooo.png" alt="Logo"> -->
-      <a href="index.html"><div class="nav__logo">EcoStayRD</div></a>
-      <ul class="nav__links">
-        <li class="link">
-          <a class="nav_casa" href="#">Pon tu casa en EcoStayRD</a>
-        </li>
-        <li class="link"><a href="#">About us</a></li>
-        <li class="link">
-          <a href="login1.html">Iniciar sesion/Registrarse</a>
-        </li>
-      </ul>
-    </nav>
-    <header class="section__container header__container">
-      <div class="header__image__container">
-        <div class="header__content">
-          <h1>Descubre el mundo cuidando el planeta</h1>
-          <p>Alojamientos ecologicos al mejor precio.</p>
+    <!-- Cabecera y navegación -->
+    <section class="primary-container">
+      <nav class="nav-section">
+        <div class="nav-brand">
+          <img src="assets/logooo.png" class="logo-pic" alt="Logo" loading="lazy" />
+          <a href="index.html">
+            <div class="nav-logo">EcoStayRD</div>
+          </a>
         </div>
-        <div class="booking__container">
+        <ul class="nav-links">
+          <li class="link">
+            <a class="nav-casa" href="#">Pon tu casa en EcoStayRD</a>
+          </li>
+          <li class="link"><a href="#">About us</a></li>
+          <li class="link">
+            <a href="login1.html">Iniciar sesión / Registrarse</a>
+          </li>
+        </ul>
+        <div class="nav-brand2">
+          <span class="material-symbols-outlined icon-drag">menu</span>
+          <img
+            src="assets/client-1.jpg"
+            class="profile-pic"
+            alt="Perfil"
+            loading="lazy"
+          />
+        </div>
+      </nav>
+      <header class="section-container header-container">
+        <div class="header-content">
+          <h2>LA MEJOR MANERA DE</h2>
+          <h1>
+            Descubrir la República Dominicana como nunca antes, cuidando cada
+            rincón
+          </h1>
+          <p>
+            Hospédate con propósito: alojamientos sostenibles a precios accesibles
+          </p>
+        </div>
+        <div class="booking-container">
           <form>
-            <div class="form__group">
-              <div class="input__group">
-                <input type="text" />
-                <label>Ubicacion</label>
+            <div class="form-group">
+              <div class="input-group">
+                <input type="text" placeholder="Ubicación" aria-label="Ubicación" />
+                <label>Ubicación</label>
               </div>
               <p>Buscar destino?</p>
             </div>
-            <div class="form__group">
-              <div class="input__group">
-                <input type="date" />
+            <div class="form-group">
+              <div class="input-group">
+                <input type="date" aria-label="Check In" />
                 <label>Check In</label>
               </div>
               <p>Agregar Fecha</p>
             </div>
-            <div class="form__group">
-              <div class="input__group">
-                <input type="date" />
+            <div class="form-group">
+              <div class="input-group">
+                <input type="date" aria-label="Check Out" />
                 <label>Check Out</label>
               </div>
               <p>Agregar Fecha</p>
             </div>
-            <div class="form__group">
-              <div class="input__group">
-                <input type="number" />
+            <div class="form-group">
+              <div class="input-group">
+                <input type="number" aria-label="Cantidad de huéspedes" />
                 <label>Guests</label>
               </div>
-              <p>Cuantos?</p>
+              <p>¿Cuántos?</p>
             </div>
           </form>
-          <button class="btn"><i class="ri-search-line"></i></button>
+          <button class="btn">
+            <i class="ri-search-line"></i>
+          </button>
         </div>
+      </header>
+    </section>
+
+    <!-- Sección de Explora alojamientos populares (actualizada con tabs) -->
+    <section class="section-container popular-container tabs-design">
+      <h2 class="section-header">Explora alojamientos populares</h2>
+
+      <!-- Botones de Tabs -->
+      <div class="tabs-container">
+        <button class="tab-button active" data-tab="valle-fresco">
+          Valle Fresco EcoLodge
+        </button>
+        <button class="tab-button" data-tab="gallo-eco-lodge">
+          El Gallo Eco-Lodge
+        </button>
       </div>
-    </header>
 
-    <section class="section__container popular__container">
-      <h2 class="section__header">Alojamientos Populares</h2>
-      <div class="popular__grid">
-        <a href="detalle.html">
-        <div class="popular__card">
-          <img src="assets/Alojamiento-1.jpg" alt="popular hotel" />
-          <div class="popular__content">
-            <div class="popular__card__header">
-              <h4>Natura Cabana & Spa</h4>
-            </div>
-            <p>Perla Marina, RD</p>
+      <!-- Contenido de cada Tab -->
+      <div class="tabs-content">
+        <!-- Tab: Valle Fresco EcoLodge -->
+        <div class="tab-content active" id="valle-fresco">
+          <div class="alojamiento-info">
+            <h3>Valle Fresco EcoLodge</h3>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            </p>
+            <p>
+              Etiam enim libero, eu eleifend enim, quis rutrum ex. Nullam
+              condimentum lobortis nisi id aliquet.
+            </p>
+            <a href="#" class="btn-lodge">Ver más</a>
+          </div>
+          <div class="alojamiento-images">
+            <img
+              src="assets/Alojamiento-6.jpg"
+              alt="Valle Fresco EcoLodge"
+              loading="lazy"
+            />
+            <img
+              src="assets/Alojamiento-5.jpg"
+              alt="Valle Fresco EcoLodge 2"
+              loading="lazy"
+            />
           </div>
         </div>
-      </a>
-        <div class="popular__card">
-          <img src="assets/Alojamiento-2.jpg" alt="popular hotel" />
-          <div class="popular__content">
-            <div class="popular__card__header">
-              <h4>Paraiso Caño Hondo</h4>
-
-            </div>
-            <p>Los Hatises, RD</p>
+        <!-- Tab: El Gallo Eco-Lodge -->
+        <div class="tab-content" id="gallo-eco-lodge">
+          <div class="alojamiento-info">
+            <h3>El Gallo Eco-Lodge</h3>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum
+              animi esse officia distinctio quia odio quis.
+            </p>
+            <p>
+              Nunc non finibus ante, vel tristique purus. Fusce molestie finibus
+              luctus. Aenean imperdiet nunc massa, vel facilisis sem dictum vel.
+            </p>
+            <a href="#" class="btn-lodge">Ver más</a>
           </div>
-        </div>
-        <div class="popular__card">
-          <img src="assets/Alojamiento-3.jpg" alt="popular hotel" />
-          <div class="popular__content">
-            <div class="popular__card__header">
-              <h4>Glamping Hotel Eco del Mar</h4>
-            </div>
-            <p>Pedernales, RD</p>
-          </div>
-        </div>
-        <div class="popular__card">
-          <img src="assets/Alojamiento-4.jpg" alt="popular hotel" />
-          <div class="popular__content">
-            <div class="popular__card__header">
-              <h4>El Valle Lodge</h4>
-
-            </div>
-            <p>Samana, RD</p>
-          </div>
-        </div>
-        <div class="popular__card">
-          <img src="assets/Alojamiento-5.jpg" alt="popular hotel" />
-          <div class="popular__content">
-            <div class="popular__card__header">
-              <h4>El Gallo Eco Lodge</h4>
-
-            </div>
-            <p>Puerto Plata, RD</p>
-          </div>
-        </div>
-        <div class="popular__card">
-          <img src="assets/Alojamiento-6.jpg" alt="popular hotel" />
-          <div class="popular__content">
-            <div class="popular__card__header">
-              <h4>Valle Fresco Constanza</h4>
-
-            </div>
-            <p>Constanza, RD</p>
+          <div class="alojamiento-images">
+            <img
+              src="assets/Alojamiento-1.jpg"
+              alt="El Gallo Eco-Lodge"
+              loading="lazy"
+            />
+            <img
+              src="assets/Alojamiento-2.jpg"
+              alt="El Gallo Eco-Lodge 2"
+              loading="lazy"
+            />
           </div>
         </div>
       </div>
     </section>
 
+    <!-- Sección de criterios de sostenibilidad (igual que antes) -->
     <section class="criterios">
-      <div class="section__container criterios__container">
-        <h2 class="section__header">Nuestros criterios de sostenibilidad</h2>
-        <div class="criterios__grid">
-          <div class="criterios__card">
-            <span class="material-symbols-outlined"> energy </span>
+      <div class="section-container criterios-container">
+        <h2 class="section-header">Nuestros criterios de sostenibilidad</h2>
+        <div class="criterios-grid">
+          <div class="criterios-card">
+            <span class="material-symbols-outlined">energy</span>
             <p>
-              Uso de iluminación y electrodomésticos de alta eficiencia
-              energética al igual que fuentes renovables
+              Uso de iluminación y electrodomésticos de alta eficiencia energética
+              y fuentes renovables
             </p>
           </div>
-          <div class="criterios__card">
-            <span class="material-symbols-outlined"> recycling </span>
+          <div class="criterios-card">
+            <span class="material-symbols-outlined">recycling</span>
             <p>
               Implementar estaciones de reciclaje y reducir plásticos de un solo
-              uso con alternativas reutilizables en los alojamientos.
+              uso, con alternativas reutilizables
             </p>
           </div>
-          <div class="criterios__card">
-            <span class="material-symbols-outlined"> water_drop </span>
+          <div class="criterios-card">
+            <span class="material-symbols-outlined">water_drop</span>
             <p>
-              Fomentar el ahorro de agua, duchas y sanitarios de bajo consumo, e
-              incentivar la reutilización de agua de lluvia en jardines.
+              Fomentar el ahorro de agua y el uso de sanitarios de bajo consumo,
+              incentivando la reutilización de agua de lluvia
             </p>
           </div>
-          <div class="criterios__card">
-            <span class="material-symbols-outlined"> scooter </span>
+          <div class="criterios-card">
+            <span class="material-symbols-outlined">scooter</span>
             <p>
-              Promover el uso de bicicletas, transporte verde y vehículos
-              eléctricos.
+              Promover el uso de bicicletas, transporte verde y vehículos eléctricos
             </p>
           </div>
-          <div class="criterios__card">
-            <span class="material-symbols-outlined"> cabin </span>
+          <div class="criterios-card">
+            <span class="material-symbols-outlined">cabin</span>
             <p>
-              Fomentar el uso de materiales ecológicos y sostenibles, como
-              maderas materiales reciclados, en la construcción y renovación de
-              alojamientos.
+              Utilización de materiales ecológicos y reciclados en la construcción
+              y renovación de alojamientos
             </p>
           </div>
-          <div class="criterios__card">
-            <span class="material-symbols-outlined"> shopping_basket </span>
+          <div class="criterios-card">
+            <span class="material-symbols-outlined">shopping_basket</span>
             <p>
-              Impulsar la economía local promoviendo productos regionales y
-              ofreciendo actividades ecológicas para los huéspedes.
+              Impulsar la economía local promocionando productos regionales y
+              actividades ecológicas
             </p>
           </div>
-          <div class="criterios__card">
-            <span class="material-symbols-outlined"> cleaning </span>
+          <div class="criterios-card">
+            <span class="material-symbols-outlined">cleaning</span>
             <p>
-              Se promueve el uso de productos de limpieza ecológicos y textiles
-              sostenibles, como algodón orgánico o bambú.
+              Uso de productos de limpieza ecológicos y textiles sostenibles como
+              algodón orgánico o bambú
             </p>
           </div>
-          <div class="criterios__card">
-            <span class="material-symbols-outlined"> history_edu </span>
+          <div class="criterios-card">
+            <span class="material-symbols-outlined">history_edu</span>
             <p>
-              Los anfitriones deben informar a los huéspedes sobre prácticas
-              sostenibles y colocar carteles educativos en áreas clave.
+              Informar a los huéspedes sobre prácticas sostenibles mediante
+              carteles educativos
             </p>
           </div>
-          <div class="criterios__card">
-            <span class="material-symbols-outlined"> nature </span>
+          <div class="criterios-card">
+            <span class="material-symbols-outlined">nature</span>
             <p>
-              Los alojamientos deben mantener áreas verdes con plantas
-              autóctonas y huertos ecológicos, evitando especies invasoras para
-              proteger la biodiversidad local.
+              Mantener áreas verdes con plantas autóctonas y huertos ecológicos,
+              protegiendo la biodiversidad local
             </p>
           </div>
-          <div class="criterios__card">
-            <span class="material-symbols-outlined"> analytics </span>
+          <div class="criterios-card">
+            <span class="material-symbols-outlined">analytics</span>
             <p>
-              Los alojamientos deben realizar auditorías periódicas para evaluar
-              su cumplimiento con las políticas ecológicas, incluyendo el
-              consumo energético, uso de agua y la producción de residuos.
+              Realizar auditorías periódicas para evaluar el consumo energético,
+              uso de agua y producción de residuos
             </p>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section__container">
-      <div class="reward__container">
-        <!-- <p>100+ discount codes</p> -->
+    <!-- Sección de Contacto -->
+    <section class="section-container">
+      <div class="reward-container">
         <form class="formulario">
           <fieldset>
-            <legend>Contactános llenando todos los campos</legend>
-
+            <legend>Contáctanos llenando todos los campos</legend>
             <div class="contenedor-campos">
               <div class="campo">
                 <label>Nombre</label>
-                <input class="input-text" type="text" placeholder="Tu Nombre" />
+                <input
+                  class="input-text"
+                  type="text"
+                  placeholder="Tu Nombre"
+                  aria-label="Nombre"
+                />
               </div>
-
               <div class="campo">
                 <label>Teléfono</label>
                 <input
                   class="input-text"
                   type="tel"
                   placeholder="Tu Teléfono"
+                  aria-label="Teléfono"
                 />
               </div>
-
               <div class="campo">
                 <label>Correo</label>
-                <input class="input-text" type="email" placeholder="Tu Email" />
+                <input
+                  class="input-text"
+                  type="email"
+                  placeholder="Tu Email"
+                  aria-label="Correo"
+                />
               </div>
-
               <div class="campo">
                 <label>Mensaje</label>
-                <textarea class="input-text"></textarea>
+                <textarea class="input-text" aria-label="Mensaje"></textarea>
               </div>
             </div>
-            <!-- .contenedor-campos -->
-
             <div class="alinear-derecha flex">
-              <button class="reward__btn">Enviar</button>
+              <button class="reward-btn">Enviar</button>
             </div>
           </fieldset>
         </form>
       </div>
     </section>
 
+    <!-- Footer -->
     <footer class="footer">
-      <!-- <div class="section__container footer__container">
-        <div class="footer__col">
-          <h3>WDM&Co</h3>
-          <p>
-            WDM&Co is a premier hotel booking website that offers a seamless and
-            convenient way to find and book accommodations worldwide.
-          </p>
-          <p>
-            With a user-friendly interface and a vast selection of hotels,
-            WDM&Co aims to provide a stress-free experience for travelers
-            seeking the perfect stay.
-          </p>
-        </div>
-        <div class="footer__col">
-          <h4>Company</h4>
-          <p>About Us</p>
-          <p>Our Team</p>
-          <p>Blog</p>
-          <p>Book</p>
-          <p>Contact Us</p>
-        </div>
-        <div class="footer__col">
-          <h4>Legal</h4>
-          <p>FAQs</p>
-          <p>Terms & Conditions</p>
-          <p>Privacy Policy</p>
-        </div>
-        <div class="footer__col">
-          <h4>Resources</h4>
-          <p>Social Media</p>
-          <p>Help Center</p>
-          <p>Partnerships</p>
-        </div>
-      </div> -->
-      <div class="footer__bar">
+      <div class="footer-bar">
         Copyright © 2024 EcoStayRD. All rights reserved.
       </div>
     </footer>
+
+    <!-- JavaScript para el funcionamiento de las pestañas -->
+    <script>
+      const tabButtons = document.querySelectorAll(".tab-button");
+      const tabContents = document.querySelectorAll(".tab-content");
+
+      tabButtons.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          // Remover la clase "active" de todos los botones
+          tabButtons.forEach((b) => b.classList.remove("active"));
+          // Asignar "active" al botón seleccionado
+          btn.classList.add("active");
+
+          // Ocultar todas las pestañas
+          tabContents.forEach((content) => content.classList.remove("active"));
+          // Mostrar la pestaña que corresponde al botón clicado
+          const tabId = btn.getAttribute("data-tab");
+          const targetContent = document.getElementById(tabId);
+          if (targetContent) {
+            targetContent.classList.add("active");
+          }
+        });
+      });
+    </script>
   </body>
 </html>

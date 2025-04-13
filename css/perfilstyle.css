@@ -1,0 +1,266 @@
+/* =======================================================
+   IMPORTACIÓN DE FUENTES y VARIABLES
+======================================================= */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+:root {
+  --color-primary: #218579;          /* Verde principal */
+  --color-primary-light: #34c58e;      /* Verde claro */
+  --color-background: #E8F2EE;         /* Fondo suave */
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --color-text: #333333;
+  --color-border: #dddddd;
+  --color-gray-light: #f8f8f8;
+  --radius-base: 1rem;
+  --radius-circle: 50%;
+  --spacing-base: 1rem;
+  --spacing-lg: 2rem;
+  --max-width: 1200px;
+}
+
+/* =======================================================
+   RESET y ESTILOS BASE
+======================================================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
+  color: var(--color-text);
+  line-height: 1.5;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* =======================================================
+   HEADER / NAVBAR (Landing Page)
+======================================================= */
+header {
+  width: 100%;
+  background-color: var(--color-white);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: var(--spacing-lg);
+}
+
+.navbar {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: var(--spacing-base);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.navbar-logo img {
+  width: 40px;
+  height: auto;
+}
+
+.navbar-menu ul {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+}
+
+.navbar-menu a {
+  font-weight: 500;
+  color: var(--color-text);
+  transition: color 0.3s;
+}
+
+.navbar-menu a:hover {
+  color: var(--color-primary);
+}
+
+/* =======================================================
+   MAIN CONTENT (Perfil)
+======================================================= */
+main {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: var(--spacing-lg) auto;
+  padding: 0 1rem;
+  flex: 1;
+}
+
+/* =======================================================
+   WRAPPER DEL PERFIL (Sidebar + Contenido Principal)
+======================================================= */
+.profile-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+}
+
+@media (min-width: 900px) {
+  .profile-wrapper {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+}
+
+/* =======================================================
+   SIDEBAR DEL PERFIL
+======================================================= */
+.profile-sidebar {
+  background-color: var(--color-white);
+  border-radius: var(--radius-base);
+  padding: var(--spacing-lg);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  max-width: 280px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-lg);
+}
+
+.profile-avatar {
+  width: 80px;
+  height: 80px;
+  background-color: var(--color-gray-light);
+  border-radius: var(--radius-circle);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  color: #aaa;
+}
+
+.profile-sidebar h3 {
+  font-size: 1.1rem;
+  text-align: center;
+}
+
+.profile-info {
+  font-size: 0.9rem;
+  text-align: center;
+  color: #777;
+}
+
+.profile-menu {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.profile-menu a {
+  display: block;
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-base);
+  font-weight: 500;
+  color: var(--color-text);
+  background-color: #f9f9f9;
+  transition: background-color 0.3s;
+}
+
+.profile-menu a:hover {
+  background-color: var(--color-background);
+}
+
+.profile-menu a.active {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}
+
+/* =======================================================
+   CONTENIDO PRINCIPAL DEL PERFIL (Formulario)
+======================================================= */
+.profile-main {
+  flex: 1;
+  background-color: var(--color-white);
+  border-radius: var(--radius-base);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: var(--spacing-lg);
+}
+
+.profile-main h2 {
+  margin-bottom: var(--spacing-base);
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+/* =======================================================
+   FORMULARIO DEL PERFIL
+======================================================= */
+.profile-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem 1.5rem;
+  margin-top: var(--spacing-lg);
+}
+
+@media (max-width: 899px) {
+  .profile-form {
+    grid-template-columns: 1fr;
+  }
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-field label {
+  font-size: 0.9rem;
+  margin-bottom: 0.4rem;
+  color: #555;
+  font-weight: 500;
+}
+
+.form-field input {
+  padding: 0.6rem 0.8rem;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  font-size: 0.9rem;
+}
+
+/* =======================================================
+   FLAG CONTAINER (País)
+======================================================= */
+.flag-container {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.flag-container img {
+  width: 24px;
+  height: 16px;
+  object-fit: cover;
+  border-radius: 2px;
+}
+
+/* =======================================================
+   FOOTER
+======================================================= */
+footer {
+  text-align: center;
+  color: var(--color-white);
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+}
