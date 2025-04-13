@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Servicios | EcoStayRD</title>
+    <!-- Vinculamos el CSS externo -->
+    <link rel="stylesheet" href="css/servicestyle.css" />
+  </head>
+  <body>
+    <!-- Contenedor principal -->
+    <main class="services-page">
+      <!-- Encabezado principal -->
+      <header class="services-header">
+        <h1>¿Cuáles servicios incluye tu lugar?</h1>
+        <p>Indica cuáles de estos tiene tu alojamiento</p>
+      </header>
+
+      <!-- Contenedor con las categorías de servicios -->
+      <form class="services-form" action="#" method="POST" aria-label="Formulario de servicios disponibles">
+        <!-- CATEGORÍA: Entretenimiento e internet -->
+        <div class="category">
+          <h3>Entretenimiento e internet</h3>
+          <label class="switch">
+            <span>WiFi</span>
+            <input type="checkbox" name="wifi" />
+            <span class="slider"></span>
+          </label>
+          <label class="switch">
+            <span>Tv</span>
+            <input type="checkbox" name="tv" />
+            <span class="slider"></span>
+          </label>
+          <label class="switch">
+            <span>Sistema de sonido</span>
+            <input type="checkbox" name="sound-system" />
+            <span class="slider"></span>
+          </label>
+        </div>
+
+        <!-- CATEGORÍA: Baño -->
+        <div class="category">
+          <h3>Baño</h3>
+          <label class="switch">
+            <span>Agua caliente</span>
+            <input type="checkbox" name="hot-water" />
+            <span class="slider"></span>
+          </label>
+          <label class="switch">
+            <span>Toallas</span>
+            <input type="checkbox" name="towels" />
+            <span class="slider"></span>
+          </label>
+        </div>
+
+        <!-- CATEGORÍA: Habitación -->
+        <div class="category">
+          <h3>Habitación</h3>
+          <label class="switch">
+            <span>Ropa de cama</span>
+            <input type="checkbox" name="bedding" />
+            <span class="slider"></span>
+          </label>
+          <label class="switch">
+            <span>Almohadas</span>
+            <input type="checkbox" name="pillows" />
+            <span class="slider"></span>
+          </label>
+          <label class="switch">
+            <span>Armarios</span>
+            <input type="checkbox" name="wardrobes" />
+            <span class="slider"></span>
+          </label>
+        </div>
+
+        <!-- CATEGORÍA: Lavandería -->
+        <div class="category">
+          <h3>Lavandería</h3>
+          <label class="switch">
+            <span>Lavadora</span>
+            <input type="checkbox" name="washer" />
+            <span class="slider"></span>
+          </label>
+          <label class="switch">
+            <span>Secadora</span>
+            <input type="checkbox" name="dryer" />
+            <span class="slider"></span>
+          </label>
+        </div>
+
+        <!-- CATEGORÍA: Climatización -->
+        <div class="category">
+          <h3>Climatización</h3>
+          <label class="switch">
+            <span>Aire acondicionado</span>
+            <input type="checkbox" name="air-conditioner" />
+            <span class="slider"></span>
+          </label>
+          <label class="switch">
+            <span>Abanico</span>
+            <input type="checkbox" name="fan" />
+            <span class="slider"></span>
+          </label>
+        </div>
+
+        <!-- CATEGORÍA: Cocina -->
+        <div class="category">
+          <h3>Cocina</h3>
+          <label class="switch">
+            <span>Estufa</span>
+            <input type="checkbox" name="stove" />
+            <span class="slider"></span>
+          </label>
+          <label class="switch">
+            <span>Utensilios</span>
+            <input type="checkbox" name="kitchenware" />
+            <span class="slider"></span>
+          </label>
+          <label class="switch">
+            <span>Microondas</span>
+            <input type="checkbox" name="microwave" />
+            <span class="slider"></span>
+          </label>
+          <label class="switch">
+            <span>Refrigerador</span>
+            <input type="checkbox" name="refrigerator" />
+            <span class="slider"></span>
+          </label>
+        </div>
+
+        <!-- CATEGORÍA: Exterior -->
+        <div class="category">
+          <h3>Exterior</h3>
+          <label class="switch">
+            <span>Estacionamiento</span>
+            <input type="checkbox" name="parking" />
+            <span class="slider"></span>
+          </label>
+          <label class="switch">
+            <span>Muebles exteriores</span>
+            <input type="checkbox" name="outdoor-furniture" />
+            <span class="slider"></span>
+          </label>
+        </div>
+
+        <!-- BOTÓN DE SIGUIENTE -->
+        <div class="form-footer">
+          <button type="submit" class="btn-submit">Siguiente</button>
+        </div>
+      </form>
+    </main>
+  </body>
+</html>
