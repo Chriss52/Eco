@@ -1,0 +1,168 @@
+/* =============================
+   VARIABLES Y ESTILOS BASE
+============================= */
+:root {
+    /* Basado en la estética verde oscura con gradiente */
+    --color-bg-start: #0b3e2e;
+    --color-bg-end: #084f38;
+    --color-primary: #0ec383;
+    --color-text: #ffffff;
+    --color-card: #172e23; /* Tarjetas/Contenedores más oscuros, si se desea */
+    --color-switch-off: #ccc; /* Color del switch desactivado */
+    --color-switch-on: #0ec383; /* Color del switch activado */
+  
+    --font-family: "Poppins", sans-serif;
+  
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 2rem;
+  
+    --radius-base: 0.5rem;
+    --radius-pill: 9999px;
+  
+    --transition-fast: 0.3s;
+  
+    --max-width: 1200px;
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: var(--font-family);
+    background: linear-gradient(135deg, var(--color-bg-start) 0%, var(--color-bg-end) 100%);
+    min-height: 100vh;
+    color: var(--color-text);
+  }
+  
+  /* =============================
+     CONTENEDOR PRINCIPAL
+  ============================= */
+  .services-page {
+    width: 100%;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: var(--spacing-lg) var(--spacing-md);
+  }
+  
+  /* =============================
+     ENCABEZADO PRINCIPAL
+  ============================= */
+  .services-header {
+    text-align: center;
+    margin-bottom: var(--spacing-lg);
+  }
+  
+  .services-header h1 {
+    font-size: 1.8rem;
+    margin-bottom: var(--spacing-sm);
+    font-weight: 600;
+  }
+  
+  .services-header p {
+    font-size: 1rem;
+    opacity: 0.85;
+  }
+  
+  /* =============================
+     FORMULARIO DE SERVICIOS
+  ============================= */
+  .services-form {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-lg);
+  }
+  
+  /* Cada categoría agrupa varios toggles */
+  .category {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+    background-color: rgba(255, 255, 255, 0.05); /* sutil card style */
+    padding: var(--spacing-md);
+    border-radius: var(--radius-base);
+  }
+  
+  .category h3 {
+    font-size: 1.1rem;
+    margin-bottom: var(--spacing-sm);
+    font-weight: 500;
+  }
+  
+  /* =============================
+     SWITCHES (toggle)
+  ============================= */
+  .switch {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .switch span {
+    font-size: 1rem;
+  }
+  
+  /* Input checkbox estilo toggle */
+  .switch input {
+    appearance: none;
+    width: 40px;
+    height: 22px;
+    background: var(--color-switch-off);
+    border-radius: var(--radius-pill);
+    position: relative;
+    cursor: pointer;
+    outline: none;
+    transition: background var(--transition-fast);
+  }
+  
+  .switch input::before {
+    content: "";
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    top: 2px;
+    left: 2px;
+    background: #fff;
+    border-radius: var(--radius-pill);
+    transition: transform var(--transition-fast);
+  }
+  
+  /* Al activar */
+  .switch input:checked {
+    background: var(--color-switch-on);
+  }
+  
+  .switch input:checked::before {
+    transform: translateX(18px);
+  }
+  
+  /* =============================
+     BOTÓN DE ENVÍO / SIGUIENTE
+  ============================= */
+  .form-footer {
+    grid-column: 1 / -1; /* Para que ocupe todo el ancho */
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .btn-submit {
+    background-color: var(--color-primary);
+    color: var(--color-text);
+    padding: var(--spacing-md) var(--spacing-lg);
+    border: none;
+    border-radius: var(--radius-base);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background var(--transition-fast);
+  }
+  
+  .btn-submit:hover {
+    background-color: #10ad70;
+    /* Ajusta según el tono que prefieras */
+  }
+  
