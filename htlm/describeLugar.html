@@ -4,40 +4,53 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Describe tu Lugar | EcoStayRD</title>
-    <!-- Importación del CSS -->
+    <!-- Iconos y fuentes -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@3.4.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Estilos personalizados: Incluye tanto el CSS del Nav Bar como el de la página actual -->
+    <link rel="stylesheet" href="/css/style.css" />
     <link rel="stylesheet" href="/css/describe-lugar.css" />
   </head>
   <body>
-    <!-- ENCABEZADO / NAVBAR -->
-    <header class="navbar">
-      <div class="navbar-content">
-        <!-- Logo a la izquierda (ajusta la ruta según tu proyecto) -->
-        <img
-          src="/assets/logooo.png"
-          alt="Logo EcoStayRD"
-          class="leaf-logo"
-        />
-        <!-- Botón Salir a la derecha -->
-        <button class="btn-exit" aria-label="Salir">Salir</button>
-      </div>
-    </header>
+    <!-- NAV BAR (tomado de la segunda vista) -->
+      <nav class="nav-section">
+        <div class="nav-brand">
+          <img src="/assets/logooo.png" class="logo-pic" alt="Logo EcoStayRD" loading="lazy" />
+          <a href="index.html">
+            <div class="nav-logo">EcoStayRD</div>
+          </a>
+        </div>
+        <ul class="nav-links">
+          <li class="link">
+            <a class="nav-casa" href="#">Salir y guardar</a>
+          </li>
+          <li class="link">
+            
+          </li>
+        </ul>
+        <div class="nav-brand2">
+          <span class="material-symbols-outlined icon-drag"></span>
+          <img src="/assets/client-1.jpg" class="profile-pic" alt="Perfil" loading="lazy" />
+        </div>
+      </nav>
 
-    <!-- CONTENEDOR PRINCIPAL -->
+    <!-- CONTENIDO PRINCIPAL: Vista "Describe tu Lugar" -->
     <main class="desc-lugar-page">
-      <!-- TÍTULO SUPERIOR -->
+      <!-- Título -->
       <h1 class="page-title">
         Describe tu espacio: ¡Haz que los huéspedes se enamoren!
       </h1>
 
-      <!-- WRAPPER PRINCIPAL DEL CONTENIDO -->
+      <!-- Contenedor de formulario y contadores -->
       <section class="desc-lugar-container">
-        <!-- COLUMNA IZQUIERDA: Campos del Formulario -->
-        <form
-          class="desc-lugar-form"
-          action="#"
-          method="post"
-          aria-label="Formulario de descripción del lugar"
-        >
+        <!-- COLUMNA IZQUIERDA: Formulario -->
+        <form class="desc-lugar-form" action="#" method="post" aria-label="Formulario de descripción del lugar">
           <!-- Campo: Nombre del Lugar -->
           <div class="form-field">
             <label for="nombre-lugar">Nombre del Lugar</label>
@@ -62,7 +75,7 @@
               <option value="casa">Casa</option>
               <option value="apartamento">Apartamento</option>
               <option value="cabaña">Cabaña</option>
-              <!-- Agrega más opciones según tu proyecto -->
+              <!-- Agrega más opciones según sea necesario -->
             </select>
           </div>
 
@@ -80,7 +93,7 @@
           </div>
         </form>
 
-        <!-- DIVISOR: Linea vertical (opcional, para separar visualmente) -->
+        <!-- Divisor vertical para separar visualmente el formulario de los contadores -->
         <div class="vertical-divider"></div>
 
         <!-- COLUMNA DERECHA: Contadores (Habitaciones, Camas, Baños) -->
@@ -88,57 +101,42 @@
           <div class="counter-field">
             <label>Habitaciones</label>
             <div class="counter-controls">
-              <button type="button" class="counter-btn" aria-label="Restar 1 habitación">
-                –
-              </button>
+              <button type="button" class="counter-btn" aria-label="Restar 1 habitación">–</button>
               <span class="counter-value" aria-live="polite">1</span>
-              <button type="button" class="counter-btn" aria-label="Sumar 1 habitación">
-                +
-              </button>
+              <button type="button" class="counter-btn" aria-label="Sumar 1 habitación">+</button>
             </div>
           </div>
 
           <div class="counter-field">
             <label>Camas</label>
             <div class="counter-controls">
-              <button type="button" class="counter-btn" aria-label="Restar 1 cama">
-                –
-              </button>
+              <button type="button" class="counter-btn" aria-label="Restar 1 cama">–</button>
               <span class="counter-value" aria-live="polite">1</span>
-              <button type="button" class="counter-btn" aria-label="Sumar 1 cama">
-                +
-              </button>
+              <button type="button" class="counter-btn" aria-label="Sumar 1 cama">+</button>
             </div>
           </div>
 
           <div class="counter-field">
             <label>Baños</label>
             <div class="counter-controls">
-              <button type="button" class="counter-btn" aria-label="Restar 1 baño">
-                –
-              </button>
+              <button type="button" class="counter-btn" aria-label="Restar 1 baño">–</button>
               <span class="counter-value" aria-live="polite">1</span>
-              <button type="button" class="counter-btn" aria-label="Sumar 1 baño">
-                +
-              </button>
+              <button type="button" class="counter-btn" aria-label="Sumar 1 baño">+</button>
             </div>
           </div>
         </aside>
       </section>
 
-      <!-- SECCIÓN INFERIOR: Barra de Progreso + Botón Siguiente -->
+      <!-- SECCIÓN INFERIOR: Barra de progreso y botón Siguiente -->
       <section class="desc-lugar-footer">
-        <!-- Barra de progreso (opcional) -->
         <div class="progress-bar">
           <div class="progress-bg">
             <div class="progress-fill" style="width: 40%;"></div>
           </div>
         </div>
-        <!-- Botón Siguiente -->
-        <button type="button" class="btn-next" aria-label="Siguiente paso">
-          Siguiente
-        </button>
+        <a href="services.html" class="btn-next" aria-label="Siguiente paso">Siguiente</a>
       </section>
+      
     </main>
   </body>
 </html>
