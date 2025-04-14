@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>EcoStayRD - Descubre alojamientos populares</title>
-  <!-- Google Fonts (ejemplo) -->
+  <!-- Google Fonts (ejemplo, activa según lo requieras) -->
   <!-- <link href="https://fonts.googleapis.com/css?family=Inter:400,500,600&display=swap" rel="stylesheet" /> -->
   <link rel="stylesheet" href="/css/exAlojamiento.css" />
 </head>
@@ -13,43 +13,20 @@
   <!-- HEADER PRINCIPAL -->
   <header class="header" role="banner">
     <div class="header__content container">
-      <!-- LOGO -->
       <a href="#" class="header__logo" aria-label="EcoStayRD - Inicio">
         <img src="/assets/logooo.png" alt="Logo EcoStayRD" />
       </a>
-
-      <!-- CONTENEDOR DE BÚSQUEDA -->
       <div class="header__search-container">
         <div class="search-inputs">
           <label for="location" class="visually-hidden">Ubicación</label>
-          <input
-            type="text"
-            id="location"
-            placeholder="Location"
-            aria-label="Buscar por ubicación"
-          />
-
+          <input type="text" id="location" placeholder="Location" aria-label="Buscar por ubicación" />
           <label for="guests" class="visually-hidden">Huéspedes</label>
-          <input
-            type="number"
-            id="guests"
-            placeholder="Guests"
-            aria-label="Número de huéspedes"
-            min="1"
-          />
-
+          <input type="number" id="guests" placeholder="Guests" aria-label="Número de huéspedes" min="1" />
           <label for="dates" class="visually-hidden">Fechas</label>
-          <input
-            type="text"
-            id="dates"
-            placeholder="Date"
-            aria-label="Seleccionar fechas"
-          />
+          <input type="text" id="dates" placeholder="Date" aria-label="Seleccionar fechas" />
         </div>
         <button class="search-btn" aria-label="Buscar alojamientos">Search</button>
       </div>
-
-      <!-- BOTÓN AÑADIR PROPIEDAD -->
       <div class="header__add-property">
         <a href="#" class="header__add-property-link">Add Property</a>
       </div>
@@ -58,7 +35,6 @@
 
   <!-- CONTENIDO PRINCIPAL -->
   <main class="main-content" role="main">
-    <!-- Sección de alojamientos populares -->
     <section class="popular container">
       <div class="popular__heading">
         <h1 class="popular__title">Descubre nuestros alojamientos populares</h1>
@@ -67,16 +43,10 @@
         </p>
         <a href="#" class="popular__all-options">Ver todas las opciones</a>
       </div>
-
-      <!-- Grid de Tarjetas (con más tarjetas de ejemplo) -->
       <div class="popular__grid">
-        <!-- TARJETA 1 -->
+        <!-- Se incluyen 8 tarjetas de ejemplo -->
         <article class="property-card">
-          <img 
-            src="/assets/Alojamiento-1.jpg" 
-            alt="Vista de la Cabaña en Jarabacoa" 
-            class="property-card__image"
-          />
+          <img src="/assets/Alojamiento-1.jpg" alt="Vista de la Cabaña en Jarabacoa" class="property-card__image" />
           <div class="property-card__content">
             <div class="property-card__price">$107 USD</div>
             <h2 class="property-card__title">Cabaña en Jarabacoa</h2>
@@ -87,14 +57,8 @@
             </ul>
           </div>
         </article>
-
-        <!-- TARJETA 2 -->
         <article class="property-card">
-          <img 
-            src="/assets/Alojamiento-2.jpg" 
-            alt="Vista de la Cabaña en Jarabacoa" 
-            class="property-card__image"
-          />
+          <img src="/assets/Alojamiento-2.jpg" alt="Vista de la Cabaña en Jarabacoa" class="property-card__image" />
           <div class="property-card__content">
             <div class="property-card__price">$129 USD</div>
             <h2 class="property-card__title">Cabaña en Jarabacoa</h2>
@@ -105,14 +69,8 @@
             </ul>
           </div>
         </article>
-
-        <!-- TARJETA 3 -->
         <article class="property-card">
-          <img 
-            src="/assets/Alojamiento-3.jpg" 
-            alt="Vista de la Cabaña en Jarabacoa" 
-            class="property-card__image"
-          />
+          <img src="/assets/Alojamiento-3.jpg" alt="Vista de la Cabaña en Jarabacoa" class="property-card__image" />
           <div class="property-card__content">
             <div class="property-card__price">$189 USD</div>
             <h2 class="property-card__title">Cabaña en Jarabacoa</h2>
@@ -123,14 +81,8 @@
             </ul>
           </div>
         </article>
-
-        <!-- TARJETA 4 -->
         <article class="property-card">
-          <img 
-            src="/assets/Alojamiento-4.jpg" 
-            alt="Vista de la Cabaña en Jarabacoa" 
-            class="property-card__image"
-          />
+          <img src="/assets/Alojamiento-4.jpg" alt="Vista de la Cabaña en Jarabacoa" class="property-card__image" />
           <div class="property-card__content">
             <div class="property-card__price">$99 USD</div>
             <h2 class="property-card__title">Cabaña en Jarabacoa</h2>
@@ -141,14 +93,8 @@
             </ul>
           </div>
         </article>
-
-        <!-- TARJETA 5 -->
         <article class="property-card">
-          <img 
-            src="/assets/Alojamiento-5.jpg" 
-            alt="Vista de la Cabaña en Jarabacoa" 
-            class="property-card__image"
-          />
+          <img src="/assets/Alojamiento-5.jpg" alt="Vista de la Cabaña en Jarabacoa" class="property-card__image" />
           <div class="property-card__content">
             <div class="property-card__price">$109 USD</div>
             <h2 class="property-card__title">Cabaña en Jarabacoa</h2>
@@ -159,14 +105,8 @@
             </ul>
           </div>
         </article>
-
-        <!-- TARJETA 6 -->
         <article class="property-card">
-          <img 
-            src="/assets/Alojamiento-6.jpg" 
-            alt="Vista de la Cabaña en Jarabacoa" 
-            class="property-card__image"
-          />
+          <img src="/assets/Alojamiento-6.jpg" alt="Vista de la Cabaña en Jarabacoa" class="property-card__image" />
           <div class="property-card__content">
             <div class="property-card__price">$175 USD</div>
             <h2 class="property-card__title">Cabaña en Jarabacoa</h2>
@@ -177,14 +117,8 @@
             </ul>
           </div>
         </article>
-
-        <!-- TARJETA 7 -->
         <article class="property-card">
-          <img 
-            src="/assets/Alojamiento-1.jpg" 
-            alt="Vista de la Cabaña en Jarabacoa" 
-            class="property-card__image"
-          />
+          <img src="/assets/Alojamiento-1.jpg" alt="Vista de la Cabaña en Jarabacoa" class="property-card__image" />
           <div class="property-card__content">
             <div class="property-card__price">$210 USD</div>
             <h2 class="property-card__title">Cabaña en Jarabacoa</h2>
@@ -195,14 +129,8 @@
             </ul>
           </div>
         </article>
-
-        <!-- TARJETA 8 -->
         <article class="property-card">
-          <img 
-            src="/assets/Alojamiento-2.jpg" 
-            alt="Vista de la Cabaña en Jarabacoa" 
-            class="property-card__image"
-          />
+          <img src="/assets/Alojamiento-2.jpg" alt="Vista de la Cabaña en Jarabacoa" class="property-card__image" />
           <div class="property-card__content">
             <div class="property-card__price">$95 USD</div>
             <h2 class="property-card__title">Cabaña en Jarabacoa</h2>
@@ -213,68 +141,100 @@
             </ul>
           </div>
         </article>
-
       </div>
     </section>
-
-    <!-- Sección "Mostrar más" -->
     <section class="load-more container">
       <h2 class="load-more__heading">Sigue descubriendo más alojamientos ecológicos</h2>
-      <button class="load-more__btn" aria-label="Cargar más alojamientos">
-        Mostrar más
-      </button>
+      <button class="load-more__btn" aria-label="Cargar más alojamientos">Mostrar más</button>
     </section>
   </main>
 
-  <!-- FOOTER -->
+  <!-- FOOTER NUEVO -->
   <footer class="footer" role="contentinfo">
-    <div class="footer__top container">
-      <!-- Información de contacto y marca -->
-      <div class="footer__brand">
-        <a href="#" class="footer__logo">
-          <img src="/assets/logooo.png" alt="Logo EcoStayRD" />
-        </a>
-        <p class="footer__contact">
-          1234 Eco Street<br />
-          Santo Domingo, RD<br />
-          +1(809) 555-1234<br />
-          <a href="mailto:hi@ecostayrd.com">hi@ecostayrd.com</a>
-        </p>
-      </div>
-      <!-- Navegación de enlaces rápidos / listas -->
-      <div class="footer__links">
-        <div class="footer__column">
-          <h3 class="footer__column-title">Popular Searches</h3>
-          <ul>
-            <li><a href="#">Eco-lodges</a></li>
-            <li><a href="#">Beachfront Villas</a></li>
-            <li><a href="#">Mountain Cabins</a></li>
-          </ul>
+    <div class="div-elementor-container">
+      <div class="div-elementor-widget-wrap">
+        <div class="section">
+          <div class="div-elementor-widget-wrap2">
+            <div class="div-elementor-heading-title">
+              <div class="total-free-customer-care">Total Free Customer Care</div>
+            </div>
+            <div class="heading-2">
+              <div class="_088-123-456-789">+(088) 123 456 789</div>
+            </div>
+          </div>
+          <div class="div-elementor-widget-wrap3">
+            <div class="div-elementor-heading-title">
+              <div class="live-support">Live Support?</div>
+            </div>
+            <div class="heading-2">
+              <div class="hi-ecostay-com">hi@ecostay.com</div>
+            </div>
+          </div>
         </div>
-        <div class="footer__column">
-          <h3 class="footer__column-title">Quick Links</h3>
-          <ul>
-            <li><a href="#">Cómo funciona</a></li>
-            <li><a href="#">Ayuda</a></li>
-            <li><a href="#">Blog</a></li>
-          </ul>
+        <div class="div-elementor-element">
+          <div class="heading-2-follow-us-on-social-media">Follow us on social media</div>
         </div>
-        <div class="footer__column">
-          <h3 class="footer__column-title">Discovery</h3>
-          <ul>
-            <li><a href="#">Reserva Rápida</a></li>
-            <li><a href="#">Ofertas de Temporada</a></li>
-            <li><a href="#">Guías de Viaje</a></li>
-          </ul>
+        <div class="div-elementor-element2">
+          <div class="symbol"></div>
+          <div class="symbol2"></div>
+          <div class="symbol3"></div>
+          <div class="symbol4"></div>
         </div>
       </div>
-    </div>
-    <div class="footer__bottom container">
-      <div class="footer__social">
-        <p>Síguenos en redes sociales</p>
+      <div class="div-elementor-widget-wrap4">
+        <div class="div-elementor-element3">
+          <div class="heading-2-keep-yourself-up-to-date">Keep Yourself Up to Date</div>
+        </div>
+        <div class="form">
+          <div class="input">
+            <div class="your-email">Your email</div>
+          </div>
+          <div class="button-subscribe">Subscribe</div>
+        </div>
+        <div class="section2">
+          <div class="div-elementor-widget-wrap5">
+            <div class="heading-22">
+              <div class="popular-search">Popular Search</div>
+            </div>
+            <div class="list">
+              <div class="item-link-apartment-for-sale">Apartment for Sale</div>
+              <div class="item-link-apartment-for-rent">Apartment for Rent</div>
+              <div class="item-link-offices-for-sale">Offices for Sale</div>
+              <div class="item-link-offices-for-rent">Offices for Rent</div>
+            </div>
+          </div>
+          <div class="div-widget-nav-menu">
+            <div class="heading-2-quick-links">Quick Links</div>
+            <div class="list-item-link-terms-of-use">Terms of Use</div>
+            <div class="list-item-link-privacy-policy">Privacy Policy</div>
+            <div class="list-item-link-pricing-plans">Pricing Plans</div>
+            <div class="list-item-link-our-services">Our Services</div>
+            <div class="list-item-link-contact">Contact</div>
+            <div class="list-item-link-careers">Careers</div>
+            <div class="list-item-link-fa-qs">FAQs</div>
+          </div>
+          <div class="div-elementor-widget-wrap6">
+            <div class="heading-23">
+              <div class="discovery">Discovery</div>
+            </div>
+            <div class="list2">
+              <div class="item-link-chicago">Chicago</div>
+              <div class="item-link-los-angeles">Los Angeles</div>
+              <div class="item-link-new-jersey">New Jersey</div>
+              <div class="item-link-new-york">New York</div>
+              <div class="item-link-california">California</div>
+            </div>
+          </div>
+        </div>
       </div>
-      <p class="footer__legal">© 2025 EcoStayRD. All Rights Reserved.</p>
+      <div class="logo-svg-fill">
+        <div class="logo-svg">
+          <div class="eco-stay-rd">EcoStayRD</div>
+        </div>
+        <img class="logooo-1" src="/assets/logooo.png" alt="Logo EcoStayRD" />
+      </div>
     </div>
   </footer>
+  
 </body>
 </html>
