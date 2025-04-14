@@ -6,7 +6,7 @@
 }
 
 body {
-  background-color: #686c78;
+  background: linear-gradient(to bottom right, #13705b, #23cd9c);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -202,8 +202,7 @@ select:focus {
 /* CONTENEDOR PRINCIPAL */
 .container {
   border-radius: 25px;
-  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),
-    0 0px 10px rgba(0, 0, 0, 0.22);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 0px 10px rgba(0, 0, 0, 0.22);
   position: relative;
   overflow: hidden;
   width: 868px;
@@ -278,11 +277,13 @@ select:focus {
 }
 
 @keyframes show {
-  0%, 49.99% {
+  0%,
+  49.99% {
     opacity: 0;
     z-index: 1;
   }
-  50%, 100% {
+  50%,
+  100% {
     opacity: 1;
     z-index: 5;
   }
@@ -304,7 +305,7 @@ select:focus {
 }
 
 .overlay {
-  background-image: url('../assets/bg.jpg');
+  background-image: url("../assets/bg.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 0 0;
@@ -324,7 +325,11 @@ select:focus {
   right: 0;
   top: 0;
   bottom: 0;
-  background: linear-gradient(to top, rgba(46,94,109,0.4) 40%, rgba(46,94,109,0));
+  background: linear-gradient(
+    to top,
+    rgba(46, 94, 109, 0.4) 40%,
+    rgba(46, 94, 109, 0)
+  );
 }
 
 .container.right-panel-active .overlay {
