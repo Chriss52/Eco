@@ -3,24 +3,19 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Página de Perfil - EcoStayRD</title>
-    <!-- Importa la fuente Poppins -->
+    <title>Perfil - EcoStayRD</title>
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <!-- Archivo CSS externo -->
     <link rel="stylesheet" href="css/perfilstyle.css" />
   </head>
   <body>
-    <!-- =======================================================
-         HEADER / NAVBAR (Landing Page)
-    ======================================================= -->
+    <!-- HEADER -->
     <header>
       <div class="navbar">
         <div class="navbar-logo">
-          <!-- Logo (ajusta la ruta de la imagen según corresponda) -->
-          <img src="assets/logooo.png" alt="EcoStayRD Logo" />
+          <img src="assets/logo-ecostayrd.png" alt="Logo EcoStayRD" />
           <span>EcoStayRD</span>
         </div>
         <nav class="navbar-menu">
@@ -33,20 +28,16 @@
       </div>
     </header>
 
-    <!-- =======================================================
-         MAIN CONTENT: Perfil
-    ======================================================= -->
+    <!-- MAIN CONTENT -->
     <main>
       <div class="profile-wrapper">
-        <!-- SIDEBAR DEL PERFIL -->
+        <!-- SIDEBAR -->
         <aside class="profile-sidebar">
-          <div class="profile-avatar" aria-hidden="true">
-            <!-- Ícono de usuario genérico (puedes reemplazarlo por una imagen) -->
+          <div class="profile-avatar">
             <span>?</span>
           </div>
           <h3>Anonymous</h3>
-          <p class="profile-info">Lorem ipsum data?</p>
-          <!-- Menú de secciones -->
+          <p class="profile-info">Miembro desde: 2023</p>
           <div class="profile-menu">
             <a href="#" class="active">Información Personal</a>
             <a href="#">Favoritos</a>
@@ -54,127 +45,86 @@
           </div>
         </aside>
 
-        <!-- CONTENIDO PRINCIPAL DE PERFIL -->
+        <!-- FORMULARIO -->
         <section class="profile-main">
           <h2>Información Personal</h2>
-          <!-- FORMULARIO DE INFORMACIÓN PERSONAL -->
-          <form
-            class="profile-form"
-            action="#"
-            method="post"
-            aria-label="Formulario de datos personales"
-          >
-            <!-- Nombre -->
-            <div class="form-field">
-              <label for="nombre">Nombre</label>
-              <input
-                type="text"
-                id="nombre"
-                name="nombre"
-                placeholder="Juan"
-                value="Juan"
-                aria-label="Nombre"
-              />
-            </div>
-
-            <!-- Apellido -->
-            <div class="form-field">
-              <label for="apellido">Apellido</label>
-              <input
-                type="text"
-                id="apellido"
-                name="apellido"
-                placeholder="Perez"
-                value="Perez"
-                aria-label="Apellido"
-              />
+          <form class="profile-form">
+            <!-- Fila: Nombre + Apellido -->
+            <div class="form-row">
+              <div class="form-field">
+                <label for="nombre">Nombre</label>
+                <input
+                  type="text"
+                  id="nombre"
+                  value="Juan"
+                  placeholder="Ej: María"
+                />
+              </div>
+              <div class="form-field">
+                <label for="apellido">Apellido</label>
+                <input
+                  type="text"
+                  id="apellido"
+                  value="Perez"
+                  placeholder="Ej: García"
+                />
+              </div>
             </div>
 
             <!-- Fecha de Nacimiento -->
             <div class="form-field">
               <label for="fecha-nacimiento">Fecha de Nacimiento</label>
-              <input
-                type="text"
-                id="fecha-nacimiento"
-                name="fecha-nacimiento"
-                placeholder="10/10/1986"
-                value="10/10/1986"
-                aria-label="Fecha de Nacimiento"
-              />
+              <input type="date" id="fecha-nacimiento" value="1886-03-15" />
             </div>
 
-            <!-- Celular -->
-            <div class="form-field">
-              <label for="celular">Celular</label>
-              <input
-                type="tel"
-                id="celular"
-                name="celular"
-                placeholder="+1 809-704-3246"
-                value="+1 809-704-3246"
-                aria-label="Celular"
-              />
-            </div>
-
-            <!-- País (incluye bandera) -->
-            <div class="form-field">
-              <label for="pais">País</label>
-              <div class="flag-container">
-                <img
-                  src="https://via.placeholder.com/24x16/0000ff/ffffff?text=RD"
-                  alt="Bandera de República Dominicana"
-                />
-                <input
-                  type="text"
-                  id="pais"
-                  name="pais"
-                  placeholder="República Dominicana"
-                  value="República Dominicana"
-                  aria-label="País"
-                />
+            <!-- Fila: Celular + País -->
+            <div class="form-row">
+              <div class="form-field">
+                <label for="celular">Celular</label>
+                <input type="tel" id="celular" value="+46-7644 394 68" />
+              </div>
+              <div class="form-field">
+                <label for="pais">País</label>
+                <div class="flag-container">
+                  <img src="assets/bandera-rd.png" alt="República Dominicana" />
+                  <input type="text" id="pais" value="República Dominicana" />
+                </div>
               </div>
             </div>
 
-            <!-- Correo Electrónico -->
-            <div class="form-field">
-              <label for="correo">Correo Electrónico</label>
-              <input
-                type="email"
-                id="correo"
-                name="correo"
-                placeholder="email@example.com"
-                value="email@example.com"
-                aria-label="Correo Electrónico"
-              />
-            </div>
-
-            <!-- Contraseña -->
-            <div class="form-field">
-              <label for="contrasena">Contraseña</label>
-              <input
-                type="password"
-                id="contrasena"
-                name="contrasena"
-                placeholder="********"
-                value="********"
-                aria-label="Contraseña"
-              />
+            <!-- Fila: Email + Contraseña -->
+            <div class="form-row">
+              <div class="form-field">
+                <label for="correo">Correo Electrónico</label>
+                <input type="email" id="correo" value="masumranai5@gmail.com" />
+              </div>
+              <div class="form-field">
+                <label for="contrasena">Contraseña</label>
+                <div class="password-field">
+                  <input type="password" id="contrasena" value="********" />
+                  <button type="button" class="show-password">👁️</button>
+                </div>
+              </div>
             </div>
           </form>
         </section>
       </div>
     </main>
 
-    <!-- =======================================================
-         FOOTER
-    ======================================================= -->
+    <!-- FOOTER -->
     <footer>
       <p>© 2025 EcoStayRD. Todos los derechos reservados.</p>
     </footer>
 
-    <!-- Se puede agregar JavaScript adicional si se necesita -->
     <script>
-      // Aquí puedes agregar lógica JS para mejorar la interactividad
+      // Script para mostrar/ocultar contraseña
+      document
+        .querySelector(".show-password")
+        .addEventListener("click", function () {
+          const passwordField = document.getElementById("contrasena");
+          passwordField.type =
+            passwordField.type === "password" ? "text" : "password";
+        });
     </script>
   </body>
 </html>
