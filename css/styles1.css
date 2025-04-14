@@ -1,3 +1,4 @@
+/* Import Google Fonts */
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
 
 * {
@@ -173,9 +174,36 @@ input {
   width: 100%;
 }
 
+/* Estilos para los listbox (select) */
+select {
+  background-color: #fff;
+  outline: none;
+  border: none;
+  border-bottom: 2px solid #adadad;
+  padding: 12px 30px 12px 0;
+  margin: 8px 0;
+  width: 100%;
+  font-family: "Poppins", sans-serif;
+  font-size: 15px;
+  color: #333;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  /* Ícono de flecha personalizada (SVG en data URI) */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='5'%3E%3Cpath fill='%23333' d='M0 0l5 5 5-5z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+}
+
+select:focus {
+  border-bottom-color: #2691d9;
+}
+
+/* CONTENEDOR PRINCIPAL */
 .container {
   border-radius: 25px;
-  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 0px 10px rgba(0,0,0,0.22);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),
+    0 0px 10px rgba(0, 0, 0, 0.22);
   position: relative;
   overflow: hidden;
   width: 868px;
@@ -184,6 +212,16 @@ input {
   max-height: 100%;
 }
 
+/* AÑADIDO: Scroll para el contenedor de registro */
+.register-container {
+  left: 0;
+  width: 50%;
+  opacity: 0;
+  z-index: 1;
+  overflow-y: auto;
+}
+
+/* Los demás contenedores mantienen su estilo */
 .form-container {
   position: absolute;
   top: 0;
@@ -230,13 +268,6 @@ input {
 
 .container.right-panel-active .login-container {
   transform: translateX(100%);
-}
-
-.register-container {
-  left: 0;
-  width: 50%;
-  opacity: 0;
-  z-index: 1;
 }
 
 .container.right-panel-active .register-container {
@@ -293,7 +324,7 @@ input {
   right: 0;
   top: 0;
   bottom: 0;
-  background: linear-gradient(to top, rgba(46,94,109,0.4) 40%, rgba(46,94,109,0) );
+  background: linear-gradient(to top, rgba(46,94,109,0.4) 40%, rgba(46,94,109,0));
 }
 
 .container.right-panel-active .overlay {
@@ -514,12 +545,18 @@ input {
     justify-content: space-between;
     align-items: flex-start;
   }
-  .footer__brand { flex: 1; }
+  .footer__brand {
+    flex: 1;
+  }
   .footer__links {
     flex: 2;
     flex-direction: row;
     justify-content: space-between;
     align-items: flex-start;
   }
-  .footer__bottom { flex-direction: row; justify-content: space-between; width: 100%; }
+  .footer__bottom {
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+  }
 }

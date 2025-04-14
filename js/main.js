@@ -56,26 +56,36 @@ function registerUser(user) {
 
 // --- Registro de usuario ---
 const registerForm = document.getElementById("registerForm");
-registerForm.addEventListener("submit", function(e) {
+registerForm.addEventListener("submit", function (e) {
   e.preventDefault();
 
   const username = document.getElementById("username").value.trim();
   const lastname = document.getElementById("user-lastname").value.trim();
   const email = document.getElementById("email").value.trim();
   const phone = document.getElementById("phone-number").value.trim();
+  // Nuevos campos: fecha de nacimiento, país y sexo
+  const birthday = document.getElementById("birthday").value;
+  const pais = document.getElementById("pais").value;
+  const sexo = document.getElementById("sexo").value;
   const password = document.getElementById("password").value;
   const confirmPassword = document.getElementById("confirm-password").value;
   const role = document.getElementById("role").value;
 
   // Validaciones básicas
   if (username.length < 3) {
-    showError(document.getElementById("username"), "*El nombre debe tener al menos 3 caracteres");
+    showError(
+      document.getElementById("username"),
+      "*El nombre debe tener al menos 3 caracteres"
+    );
     return;
   } else {
     showSuccess(document.getElementById("username"));
   }
   if (lastname.length < 3) {
-    showError(document.getElementById("user-lastname"), "*El apellido debe tener al menos 3 caracteres");
+    showError(
+      document.getElementById("user-lastname"),
+      "*El apellido debe tener al menos 3 caracteres"
+    );
     return;
   } else {
     showSuccess(document.getElementById("user-lastname"));
@@ -87,19 +97,56 @@ registerForm.addEventListener("submit", function(e) {
     showSuccess(document.getElementById("email"));
   }
   if (phone.length !== 10) {
-    showError(document.getElementById("phone-number"), "*El número debe tener 10 dígitos");
+    showError(
+      document.getElementById("phone-number"),
+      "*El número debe tener 10 dígitos"
+    );
     return;
   } else {
     showSuccess(document.getElementById("phone-number"));
   }
+  // Validar campos nuevos
+  if (birthday === "") {
+    showError(
+      document.getElementById("birthday"),
+      "*Seleccione su fecha de nacimiento"
+    );
+    return;
+  } else {
+    showSuccess(document.getElementById("birthday"));
+  }
+  if (pais === "") {
+    showError(
+      document.getElementById("pais"),
+      "*Seleccione un país"
+    );
+    return;
+  } else {
+    showSuccess(document.getElementById("pais"));
+  }
+  if (sexo === "") {
+    showError(
+      document.getElementById("sexo"),
+      "*Seleccione su sexo"
+    );
+    return;
+  } else {
+    showSuccess(document.getElementById("sexo"));
+  }
   if (password.length < 8) {
-    showError(document.getElementById("password"), "*La contraseña debe tener al menos 8 caracteres");
+    showError(
+      document.getElementById("password"),
+      "*La contraseña debe tener al menos 8 caracteres"
+    );
     return;
   } else {
     showSuccess(document.getElementById("password"));
   }
   if (password !== confirmPassword) {
-    showError(document.getElementById("confirm-password"), "*Las contraseñas no coinciden");
+    showError(
+      document.getElementById("confirm-password"),
+      "*Las contraseñas no coinciden"
+    );
     return;
   } else {
     showSuccess(document.getElementById("confirm-password"));
@@ -114,8 +161,19 @@ registerForm.addEventListener("submit", function(e) {
     const small = roleEl.parentElement.querySelector("small");
     small.innerText = "";
   }
-  
-  const user = { username, lastname, email, phone, password, role };
+
+  // Crear el objeto usuario con los nuevos campos
+  const user = {
+    username,
+    lastname,
+    email,
+    phone,
+    birthday,
+    pais,
+    sexo,
+    password,
+    role,
+  };
   if (registerUser(user)) {
     registerForm.reset();
     // Alternar a la vista de login después de un registro exitoso
@@ -144,12 +202,12 @@ function checkEmail2(emailVal) {
 }
 
 const loginForm = document.getElementById("loginForm");
-loginForm.addEventListener("submit", function(e) {
+loginForm.addEventListener("submit", function (e) {
   e.preventDefault();
 
   const loginEmail = document.getElementById("loginEmail").value.trim();
   const loginPassword = document.getElementById("loginPassword").value;
-  
+
   if (!checkEmail2(loginEmail)) {
     showError2(document.querySelector(".email-2"), "*Correo inválido");
     return;
@@ -157,22 +215,27 @@ loginForm.addEventListener("submit", function(e) {
     showSuccess2(document.querySelector(".email-2"));
   }
   if (loginPassword.length < 8) {
-    showError2(document.querySelector(".password-2"), "*La contraseña debe tener al menos 8 caracteres");
+    showError2(
+      document.querySelector(".password-2"),
+      "*La contraseña debe tener al menos 8 caracteres"
+    );
     return;
   } else {
     showSuccess2(document.querySelector(".password-2"));
   }
-  
+
   const users = getUsers();
-  const user = users.find(u => u.email === loginEmail && u.password === loginPassword);
+  const user = users.find(
+    (u) => u.email === loginEmail && u.password === loginPassword
+  );
   if (!user) {
     alert("Credenciales incorrectas");
     return;
   }
-  
+
   sessionStorage.setItem("loggedUser", JSON.stringify(user));
   alert(`Bienvenido ${user.username}. Rol: ${user.role}`);
-  
+
   // Redirigir según rol
   if (user.role === "huesped") {
     window.location.href = "exAlojamiento.html";

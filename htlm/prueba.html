@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EcoStayRD - Información Personal y Favoritos</title>
+  <!-- Meta descripción y otras etiquetas necesarias -->
+  <link rel="stylesheet" href="/css/prueba.css" />
+</head>
+
+<body>
+  <!-- HEADER PRINCIPAL -->
+  <header aria-label="Cabecera principal" class="main-header">
+    <div class="logo-container">
+      <!-- Logo o texto de marca -->
+      <img
+        src="https://via.placeholder.com/40?text=LOGO"
+        alt="Logo EcoStayRD"
+        class="logo"
+      />
+      <span class="brand-name">EcoStayRD</span>
+    </div>
+    <!-- Navegación principal -->
+    <nav aria-label="Navegación principal" class="main-nav">
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Listings</a></li>
+        <li><a href="#">Members</a></li>
+        <li><a href="#">Blog</a></li>
+        <li><a href="#">Pages</a></li>
+      </ul>
+    </nav>
+    <!-- Icono de perfil o menú usuario (versión escritorio) -->
+    <div class="user-profile">
+      <img
+        src="https://via.placeholder.com/40?text=U"
+        alt="Icono de usuario"
+      />
+    </div>
+  </header>
+  <!-- FIN HEADER PRINCIPAL -->
+
+  <!-- CONTENEDOR PRINCIPAL: barra lateral + contenido -->
+  <div class="layout-container">
+    <!-- BARRA LATERAL (perfil de usuario) -->
+    <aside aria-label="Perfil de usuario" class="sidebar">
+      <div class="profile-card">
+        <img
+          src="https://via.placeholder.com/80?text=Anon"
+          alt="Usuario anónimo"
+          class="profile-avatar"
+        />
+        <div class="profile-info">
+          <h2 class="username">Anonymous</h2>
+          <p class="user-status">No identificado</p>
+          <p class="last-login">Last Login: Feb 13 2023</p>
+        </div>
+
+        <!-- Menú de opciones del usuario -->
+        <nav aria-label="Opciones de usuario" class="user-menu">
+          <ul>
+            <!-- Se añade data-view para identificar la sección a mostrar -->
+            <li>
+              <a href="#" class="active" data-view="info">
+                <span class="menu-icon">👤</span> Información Personal
+              </a>
+            </li>
+            <li>
+              <a href="#" data-view="favorites">
+                <span class="menu-icon">⭐</span> Favoritos
+              </a>
+            </li>
+            <!-- Opción adicional (Historial) sin vista asignada -->
+            <li>
+              <a href="#" data-view="history">
+                <span class="menu-icon">🕒</span> Historial
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </aside>
+    <!-- FIN BARRA LATERAL -->
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="main-content">
+      <!-- SECCIÓN: INFORMACIÓN PERSONAL -->
+      <section class="personal-info-section" id="info-view">
+        <h1 class="section-title">Información Personal</h1>
+        <!-- Card con datos del usuario -->
+        <article class="info-card">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="nombre">Nombre</label>
+              <div class="input-wrapper">
+                <input type="text" id="nombre" placeholder="Juan Perez" />
+                <span class="edit-icon" aria-hidden="true">✏️</span>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="apellido">Apellido</label>
+              <div class="input-wrapper">
+                <input type="text" id="apellido" placeholder="García" />
+                <span class="edit-icon" aria-hidden="true">✏️</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="fecha-nacimiento">Fecha de Nacimiento</label>
+            <div class="input-wrapper">
+              <input type="date" id="fecha-nacimiento" />
+              <span class="edit-icon" aria-hidden="true">✏️</span>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="celular">Celular</label>
+            <div class="input-wrapper">
+              <input type="tel" id="celular" placeholder="+1-784-344-23-94" />
+              <span class="edit-icon" aria-hidden="true">✏️</span>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="pais">País</label>
+            <div class="input-wrapper">
+              <input type="text" id="pais" placeholder="República Dominicana" />
+              <img
+                class="flag-icon"
+                src="https://flagcdn.com/16x12/do.png"
+                alt="Bandera de República Dominicana"
+              />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="correo">Correo Electrónico</label>
+            <div class="input-wrapper">
+              <input type="email" id="correo" placeholder="moooman01@gmail.com" />
+              <span class="edit-icon" aria-hidden="true">✏️</span>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="contrasena">Contraseña</label>
+            <div class="input-wrapper">
+              <input type="password" id="contrasena" placeholder="••••••••" />
+              <span class="edit-icon" aria-hidden="true">✏️</span>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="confirmar-contrasena">Confirmar Contraseña</label>
+            <div class="input-wrapper">
+              <input type="password" id="confirmar-contrasena" placeholder="••••••••" />
+              <span class="edit-icon" aria-hidden="true">✏️</span>
+            </div>
+          </div>
+        </article>
+      </section>
+      <!-- FIN SECCIÓN INFORMACIÓN PERSONAL -->
+
+      <!-- SECCIÓN: FAVORITOS -->
+      <section class="favorites-section" id="favorites-view">
+        <h1 class="section-title">Favoritos</h1>
+        <div class="favorites-grid">
+          <!-- Tarjeta 1 -->
+          <article class="favorite-card">
+            <img
+              src="https://via.placeholder.com/300x200?text=Favorito+1"
+              alt="Imagen de ejemplo favorito 1"
+            />
+            <h2>Favorito 1</h2>
+            <p>Last update Feb 13 2023</p>
+          </article>
+
+          <!-- Tarjeta 2 -->
+          <article class="favorite-card">
+            <img
+              src="https://via.placeholder.com/300x200?text=Favorito+2"
+              alt="Imagen de ejemplo favorito 2"
+            />
+            <h2>Favorito 2</h2>
+            <p>Last update Feb 13 2023</p>
+          </article>
+
+          <!-- Tarjeta 3 -->
+          <article class="favorite-card">
+            <img
+              src="https://via.placeholder.com/300x200?text=Favorito+3"
+              alt="Imagen de ejemplo favorito 3"
+            />
+            <h2>Favorito 3</h2>
+            <p>Last update Feb 13 2023</p>
+          </article>
+        </div>
+      </section>
+      <!-- FIN SECCIÓN FAVORITOS -->
+    </main>
+    <!-- FIN CONTENIDO PRINCIPAL -->
+  </div>
+
+  <!-- FOOTER (opcional) -->
+  <footer aria-label="Pie de página" class="main-footer">
+    <p>© 2023 EcoStayRD. Todos los derechos reservados.</p>
+  </footer>
+
+  <!-- SCRIPT PARA TOGGLE DE VISTAS -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      // Selecciona las secciones por ID o clases
+      const infoSection = document.getElementById("info-view");
+      const favSection = document.getElementById("favorites-view");
+      // Selecciona todos los enlaces del menú con atributo data-view
+      const menuLinks = document.querySelectorAll(".user-menu li a");
+
+      // Inicia mostrando la sección de Información Personal y ocultando Favoritos
+      infoSection.style.display = "block";
+      favSection.style.display = "none";
+
+      menuLinks.forEach(link => {
+        link.addEventListener("click", function (e) {
+          e.preventDefault();
+          // Remueve la clase activa de todos los enlaces
+          menuLinks.forEach(item => item.classList.remove("active"));
+          // Añade la clase activa al enlace clickeado
+          this.classList.add("active");
+
+          // Obtiene el valor del atributo data-view
+          const view = this.getAttribute("data-view");
+
+          // Alterna la visibilidad según el valor seleccionado
+          if (view === "info") {
+            infoSection.style.display = "block";
+            favSection.style.display = "none";
+          } else if (view === "favorites") {
+            infoSection.style.display = "none";
+            favSection.style.display = "block";
+          } else {
+            // Si se agrega otra opción (por ejemplo, "history"), se puede manejar aquí
+            infoSection.style.display = "none";
+            favSection.style.display = "none";
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>

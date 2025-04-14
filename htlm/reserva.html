@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pago</title>
+  <!-- En un proyecto real, importaría la fuente desde Google Fonts u otro CDN -->
+  <style>
+    /* 
+     ===========================
+     Variables y Reset Básico
+     ===========================
+    */
+    :root {
+      --color-primary: #000;
+      --color-accent: #008272; /* Aproximado para el botón "Pay" */
+      --color-cancel: #D32F2F; /* Aproximado para el botón "Cancelar" */
+      --color-light: #FFF;
+      --color-gray-100: #f8f9fa;
+      --color-gray-600: #6c757d;
+      --font-family-base: 'Poppins', sans-serif;
+      
+      /* Espaciados */
+      --spacing-xs: 0.5rem;
+      --spacing-sm: 1rem;
+      --spacing-md: 1.5rem;
+      --spacing-lg: 2rem;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: var(--font-family-base);
+      color: var(--color-primary);
+      background-color: var(--color-light);
+      line-height: 1.4;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    /* 
+     ===========================
+     Layout Principal
+     ===========================
+    */
+    .container {
+      display: grid;
+      grid-template-columns: 1fr; /* mobile-first: una columna */
+      gap: var(--spacing-lg);
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: var(--spacing-sm);
+    }
+
+    /* 
+     Para pantallas grandes: 
+     2 columnas: contenido (left) y formulario (right)
+    */
+    @media (min-width: 900px) {
+      .container {
+        grid-template-columns: 2fr 1fr; /* Ajustar según el tamaño deseado */
+      }
+    }
+
+    header {
+      margin-bottom: var(--spacing-md);
+    }
+
+    header h1 {
+      font-size: 1.8rem;
+      margin-bottom: var(--spacing-sm);
+    }
+
+    /* 
+     ===========================
+     Sección de Contenido Izquierdo (main)
+     ===========================
+    */
+    main {
+      width: 100%;
+    }
+
+    /* Detalles de la propiedad */
+    .property-details {
+      margin-bottom: var(--spacing-md);
+    }
+
+    .property-title {
+      font-size: 1.4rem;
+      font-weight: 600;
+      margin-top: var(--spacing-sm);
+      margin-bottom: var(--spacing-xs);
+    }
+
+    .property-description {
+      color: var(--color-gray-600);
+      margin-bottom: var(--spacing-md);
+    }
+
+    /* 
+     ===========================
+     Actividades
+     ===========================
+    */
+    .activities {
+      margin-bottom: var(--spacing-md);
+    }
+
+    .activities h2 {
+      font-size: 1.2rem;
+      margin-bottom: var(--spacing-sm);
+    }
+
+    .activity-cards {
+      display: grid;
+      grid-template-columns: 1fr; /* En móvil, 1 columna */
+      gap: var(--spacing-sm);
+    }
+
+    @media (min-width: 600px) {
+      .activity-cards {
+        grid-template-columns: repeat(2, 1fr); /* 2 columnas en tablet */
+      }
+    }
+
+    @media (min-width: 900px) {
+      .activity-cards {
+        grid-template-columns: repeat(3, 1fr); /* 3 columnas en escritorio */
+      }
+    }
+
+    .activity-card {
+      border: 1px solid #eaeaea;
+      border-radius: 6px;
+      overflow: hidden;
+      background-color: var(--color-light);
+    }
+
+    .activity-card img {
+      object-fit: cover;
+      height: 180px; /* Ajustar si se requiere */
+    }
+
+    .activity-info {
+      padding: var(--spacing-sm);
+    }
+
+    .activity-price {
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+
+    /* 
+     ===========================
+     Columna Derecha: Formulario de Pago (aside)
+     ===========================
+    */
+    aside {
+      width: 100%;
+    }
+
+    .payment-form {
+      background-color: var(--color-light);
+      border: 1px solid #eaeaea;
+      border-radius: 6px;
+      padding: var(--spacing-md);
+    }
+
+    .payment-form h2 {
+      font-size: 1.2rem;
+      margin-bottom: var(--spacing-sm);
+    }
+
+    fieldset {
+      margin-bottom: var(--spacing-md);
+      border: none;
+      padding: 0;
+    }
+
+    legend {
+      font-weight: 600;
+      margin-bottom: var(--spacing-xs);
+    }
+
+    label {
+      display: block;
+      margin-bottom: 0.25rem;
+      font-size: 0.9rem;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    select {
+      width: 100%;
+      padding: 0.5rem;
+      margin-bottom: var(--spacing-sm);
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 0.9rem;
+    }
+
+    .form-row {
+      display: flex;
+      gap: var(--spacing-sm);
+      flex-wrap: wrap;
+    }
+
+    .form-row > div {
+      flex: 1;
+      min-width: 100px;
+    }
+
+    /* 
+     ===========================
+     Botones
+     ===========================
+    */
+    .btn-actions {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: var(--spacing-sm);
+      margin-top: var(--spacing-md);
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: 4px;
+      font-size: 1rem;
+      cursor: pointer;
+      font-weight: 600;
+      text-align: center;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn-pay {
+      background-color: var(--color-accent);
+      color: var(--color-light);
+    }
+    .btn-pay:hover {
+      background-color: #00695C; /* oscurecer un poco */
+    }
+
+    .btn-cancel {
+      background-color: var(--color-cancel);
+      color: var(--color-light);
+    }
+    .btn-cancel:hover {
+      background-color: #b71c1c; /* oscurecer un poco */
+    }
+  </style>
+</head>
+<body>
+  <!-- Encabezado principal -->
+  <header>
+    <div class="container">
+      <h1>Pago</h1>
+    </div>
+  </header>
+
+  <!-- Contenedor principal -->
+  <div class="container">
+    <!-- Columna Izquierda: Contenido -->
+    <main>
+      <!-- Sección de la propiedad -->
+      <section class="property-details">
+        <img 
+          src="/assets/Alojamiento-1.jpg" 
+          alt="Imagen de la Villa en Jarabacoa" 
+        />
+        <h2 class="property-title">Villa Los Patos en Jarabacoa</h2>
+        <p class="property-description">
+          Residencia en Jarabacoa<br />
+          4 Huéspedes • 2 Habitaciones • 3 Camas • 3 Baños
+        </p>
+      </section>
+
+      <!-- Sección de actividades -->
+      <section class="activities">
+        <h2>Actividades</h2>
+        <div class="activity-cards">
+          <!-- Tarjeta de actividad 1 -->
+          <article class="activity-card">
+            <img 
+              src="/assets/hotel-5.jpg" 
+              alt="Actividad de montar a caballo" 
+            />
+            <div class="activity-info">
+              <p class="activity-price">$50 USD</p>
+              <p class="activity-name">Montar a caballo</p>
+            </div>
+          </article>
+          <!-- Tarjeta de actividad 2 (ejemplo) -->
+          <article class="activity-card">
+            <img 
+              src="/assets/hotel-6.jpg" 
+              alt="Actividad de rafting" 
+            />
+            <div class="activity-info">
+              <p class="activity-price">$65 USD</p>
+              <p class="activity-name">Rafting en el río</p>
+            </div>
+          </article>
+          <!-- Tarjeta de actividad 3 (ejemplo) -->
+          <article class="activity-card">
+            <img 
+              src="/assets/hotel-4.jpg" 
+              alt="Actividad de parapente" 
+            />
+            <div class="activity-info">
+              <p class="activity-price">$80 USD</p>
+              <p class="activity-name">Parapente</p>
+            </div>
+          </article>
+          <!-- Se pueden añadir más tarjetas de ser necesario -->
+        </div>
+      </section>
+    </main>
+
+    <!-- Columna Derecha: Formulario de Pago -->
+    <aside>
+      <form class="payment-form">
+        <!-- Detalles de Tarjeta de Crédito -->
+        <fieldset>
+          <legend>Credit Card Details</legend>
+          <label for="cardholderName">Name on Card</label>
+          <input 
+            type="text" 
+            id="cardholderName" 
+            name="cardholderName" 
+            placeholder="Nombre del titular"
+            aria-label="Nombre del titular de la tarjeta"
+            required
+          />
+
+          <label for="cardNumber">Card Number</label>
+          <input 
+            type="text" 
+            id="cardNumber" 
+            name="cardNumber" 
+            placeholder="XXXX XXXX XXXX XXXX"
+            aria-label="Número de tarjeta"
+            required
+          />
+
+          <div class="form-row">
+            <div>
+              <label for="expirationDate">Expiration Date</label>
+              <input 
+                type="text" 
+                id="expirationDate" 
+                name="expirationDate" 
+                placeholder="MM/YY" 
+                aria-label="Fecha de expiración"
+                required
+              />
+            </div>
+            <div>
+              <label for="cardCVC">Card Security Code</label>
+              <input 
+                type="text" 
+                id="cardCVC" 
+                name="cardCVC" 
+                placeholder="CVC"
+                aria-label="Código de seguridad"
+                required
+              />
+            </div>
+          </div>
+        </fieldset>
+
+        <!-- Dirección de Facturación -->
+        <fieldset>
+          <legend>Billing Address</legend>
+          <label for="country">Country</label>
+          <select 
+            id="country" 
+            name="country" 
+            aria-label="País de facturación"
+            required
+          >
+            <option value="">Seleccione un país</option>
+            <option value="do">República Dominicana</option>
+            <option value="mx">México</option>
+            <option value="us">Estados Unidos</option>
+            <!-- Agregar más países según sea necesario -->
+          </select>
+
+          <label for="address">Address</label>
+          <input 
+            type="text" 
+            id="address" 
+            name="address" 
+            placeholder="Calle, número, etc."
+            aria-label="Dirección de facturación"
+            required
+          />
+
+          <div class="form-row">
+            <div>
+              <label for="city">City</label>
+              <input 
+                type="text" 
+                id="city" 
+                name="city" 
+                placeholder="Ciudad"
+                aria-label="Ciudad de facturación"
+                required
+              />
+            </div>
+            <div>
+              <label for="state">State</label>
+              <input 
+                type="text" 
+                id="state" 
+                name="state" 
+                placeholder="Estado / Provincia"
+                aria-label="Estado de facturación"
+                required
+              />
+            </div>
+          </div>
+
+          <label for="zip">ZIP Code</label>
+          <input 
+            type="text" 
+            id="zip" 
+            name="zip" 
+            placeholder="Código Postal"
+            aria-label="Código postal de facturación"
+            required
+          />
+
+          <label for="phone">Phone</label>
+          <input 
+            type="tel" 
+            id="phone" 
+            name="phone" 
+            placeholder="+1 000 000 0000"
+            aria-label="Número de teléfono"
+          />
+        </fieldset>
+
+        <!-- Información de Contacto -->
+        <fieldset>
+          <legend>Contact Information</legend>
+          <label for="email">Email</label>
+          <input 
+            type="email" 
+            id="email" 
+            name="email" 
+            placeholder="correo@ejemplo.com"
+            aria-label="Correo electrónico"
+            required
+          />
+        </fieldset>
+
+        <!-- Botones de Acción -->
+        <div class="btn-actions">
+          <button type="submit" class="btn btn-pay">Pay</button>
+          <button type="button" class="btn btn-cancel">Cancelar</button>
+        </div>
+      </form>
+    </aside>
+  </div>
+</body>
+</html>
