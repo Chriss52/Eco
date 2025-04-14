@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>EcoStayRD - Descubre alojamientos populares</title>
+  <!-- Google Fonts (ejemplo) -->
+  <!-- <link href="https://fonts.googleapis.com/css?family=Inter:400,500,600&display=swap" rel="stylesheet" /> -->
+  <link rel="stylesheet" href="/css/exAlojamiento.css" />
+</head>
+<body>
+
+  <!-- HEADER PRINCIPAL -->
+  <header class="header" role="banner">
+    <div class="header__content container">
+      <!-- LOGO -->
+      <a href="#" class="header__logo" aria-label="EcoStayRD - Inicio">
+        <img src="/assets/logooo.png" alt="Logo EcoStayRD" />
+      </a>
+
+      <!-- CONTENEDOR DE BÚSQUEDA -->
+      <div class="header__search-container">
+        <div class="search-inputs">
+          <label for="location" class="visually-hidden">Ubicación</label>
+          <input
+            type="text"
+            id="location"
+            placeholder="Location"
+            aria-label="Buscar por ubicación"
+          />
+
+          <label for="guests" class="visually-hidden">Huéspedes</label>
+          <input
+            type="number"
+            id="guests"
+            placeholder="Guests"
+            aria-label="Número de huéspedes"
+            min="1"
+          />
+
+          <label for="dates" class="visually-hidden">Fechas</label>
+          <input
+            type="text"
+            id="dates"
+            placeholder="Date"
+            aria-label="Seleccionar fechas"
+          />
+        </div>
+        <button class="search-btn" aria-label="Buscar alojamientos">Search</button>
+      </div>
+
+      <!-- BOTÓN AÑADIR PROPIEDAD -->
+      <div class="header__add-property">
+        <a href="#" class="header__add-property-link">Add Property</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- CONTENIDO PRINCIPAL -->
+  <main class="main-content" role="main">
+    <!-- Sección de alojamientos populares -->
+    <section class="popular container">
+      <div class="popular__heading">
+        <h1 class="popular__title">Descubre nuestros alojamientos populares</h1>
+        <p class="popular__subtitle">
+          Aquí puedes filtrar según tus criterios de búsqueda para encontrar la opción ideal.
+        </p>
+        <a href="#" class="popular__all-options">Ver todas las opciones</a>
+      </div>
+
+      <!-- Grid de Tarjetas (con más tarjetas de ejemplo) -->
+      <div class="popular__grid">
+        <!-- TARJETA 1 -->
+        <article class="property-card">
+          <img 
+            src="/assets/Alojamiento-1.jpg" 
+            alt="Vista de la Cabaña en Jarabacoa" 
+            class="property-card__image"
+          />
+          <div class="property-card__content">
+            <div class="property-card__price">$107 USD</div>
+            <h2 class="property-card__title">Cabaña en Jarabacoa</h2>
+            <ul class="property-card__info">
+              <li>El Corme</li>
+              <li>3 Cam.</li>
+              <li>2 Ba.</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- TARJETA 2 -->
+        <article class="property-card">
+          <img 
+            src="/assets/Alojamiento-2.jpg" 
+            alt="Vista de la Cabaña en Jarabacoa" 
+            class="property-card__image"
+          />
+          <div class="property-card__content">
+            <div class="property-card__price">$129 USD</div>
+            <h2 class="property-card__title">Cabaña en Jarabacoa</h2>
+            <ul class="property-card__info">
+              <li>El Corme</li>
+              <li>3 Cam.</li>
+              <li>2 Ba.</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- TARJETA 3 -->
+        <article class="property-card">
+          <img 
+            src="/assets/Alojamiento-3.jpg" 
+            alt="Vista de la Cabaña en Jarabacoa" 
+            class="property-card__image"
+          />
+          <div class="property-card__content">
+            <div class="property-card__price">$189 USD</div>
+            <h2 class="property-card__title">Cabaña en Jarabacoa</h2>
+            <ul class="property-card__info">
+              <li>El Corme</li>
+              <li>4 Cam.</li>
+              <li>3 Ba.</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- TARJETA 4 -->
+        <article class="property-card">
+          <img 
+            src="/assets/Alojamiento-4.jpg" 
+            alt="Vista de la Cabaña en Jarabacoa" 
+            class="property-card__image"
+          />
+          <div class="property-card__content">
+            <div class="property-card__price">$99 USD</div>
+            <h2 class="property-card__title">Cabaña en Jarabacoa</h2>
+            <ul class="property-card__info">
+              <li>El Corme</li>
+              <li>2 Cam.</li>
+              <li>1 Ba.</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- TARJETA 5 -->
+        <article class="property-card">
+          <img 
+            src="/assets/Alojamiento-5.jpg" 
+            alt="Vista de la Cabaña en Jarabacoa" 
+            class="property-card__image"
+          />
+          <div class="property-card__content">
+            <div class="property-card__price">$109 USD</div>
+            <h2 class="property-card__title">Cabaña en Jarabacoa</h2>
+            <ul class="property-card__info">
+              <li>El Corme</li>
+              <li>3 Cam.</li>
+              <li>2 Ba.</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- TARJETA 6 -->
+        <article class="property-card">
+          <img 
+            src="/assets/Alojamiento-6.jpg" 
+            alt="Vista de la Cabaña en Jarabacoa" 
+            class="property-card__image"
+          />
+          <div class="property-card__content">
+            <div class="property-card__price">$175 USD</div>
+            <h2 class="property-card__title">Cabaña en Jarabacoa</h2>
+            <ul class="property-card__info">
+              <li>El Corme</li>
+              <li>3 Cam.</li>
+              <li>2 Ba.</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- TARJETA 7 -->
+        <article class="property-card">
+          <img 
+            src="/assets/Alojamiento-1.jpg" 
+            alt="Vista de la Cabaña en Jarabacoa" 
+            class="property-card__image"
+          />
+          <div class="property-card__content">
+            <div class="property-card__price">$210 USD</div>
+            <h2 class="property-card__title">Cabaña en Jarabacoa</h2>
+            <ul class="property-card__info">
+              <li>El Corme</li>
+              <li>4 Cam.</li>
+              <li>4 Ba.</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- TARJETA 8 -->
+        <article class="property-card">
+          <img 
+            src="/assets/Alojamiento-2.jpg" 
+            alt="Vista de la Cabaña en Jarabacoa" 
+            class="property-card__image"
+          />
+          <div class="property-card__content">
+            <div class="property-card__price">$95 USD</div>
+            <h2 class="property-card__title">Cabaña en Jarabacoa</h2>
+            <ul class="property-card__info">
+              <li>El Corme</li>
+              <li>2 Cam.</li>
+              <li>1 Ba.</li>
+            </ul>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- Sección "Mostrar más" -->
+    <section class="load-more container">
+      <h2 class="load-more__heading">Sigue descubriendo más alojamientos ecológicos</h2>
+      <button class="load-more__btn" aria-label="Cargar más alojamientos">
+        Mostrar más
+      </button>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer__top container">
+      <!-- Información de contacto y marca -->
+      <div class="footer__brand">
+        <a href="#" class="footer__logo">
+          <img src="/assets/logooo.png" alt="Logo EcoStayRD" />
+        </a>
+        <p class="footer__contact">
+          1234 Eco Street<br />
+          Santo Domingo, RD<br />
+          +1(809) 555-1234<br />
+          <a href="mailto:hi@ecostayrd.com">hi@ecostayrd.com</a>
+        </p>
+      </div>
+      <!-- Navegación de enlaces rápidos / listas -->
+      <div class="footer__links">
+        <div class="footer__column">
+          <h3 class="footer__column-title">Popular Searches</h3>
+          <ul>
+            <li><a href="#">Eco-lodges</a></li>
+            <li><a href="#">Beachfront Villas</a></li>
+            <li><a href="#">Mountain Cabins</a></li>
+          </ul>
+        </div>
+        <div class="footer__column">
+          <h3 class="footer__column-title">Quick Links</h3>
+          <ul>
+            <li><a href="#">Cómo funciona</a></li>
+            <li><a href="#">Ayuda</a></li>
+            <li><a href="#">Blog</a></li>
+          </ul>
+        </div>
+        <div class="footer__column">
+          <h3 class="footer__column-title">Discovery</h3>
+          <ul>
+            <li><a href="#">Reserva Rápida</a></li>
+            <li><a href="#">Ofertas de Temporada</a></li>
+            <li><a href="#">Guías de Viaje</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer__bottom container">
+      <div class="footer__social">
+        <p>Síguenos en redes sociales</p>
+      </div>
+      <p class="footer__legal">© 2025 EcoStayRD. All Rights Reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>

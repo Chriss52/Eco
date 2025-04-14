@@ -1,0 +1,278 @@
+/* ===============================
+   1) VARIABLES Y RESET
+=============================== */
+:root {
+    /* Basado en tu captura, un verde suave (izq) y un más oscuro (der) */
+    --color-bg-start: #62ac88;  /* Ajusta según valores exactos de la maqueta */
+    --color-bg-end: #1b885f;    /* Ajusta según valores exactos de la maqueta */
+    --color-card: #ffffff;      /* Fondo de inputs y contenedores */
+    --color-text: #333333;      /* Texto principal */
+    --color-accent: #2c3855;    /* Para divisores, bordes, etc. (o un verde oscuro) */
+    --color-button: #0ec383;    /* Botón Siguiente */
+    
+    --font-family: "Poppins", sans-serif;
+  
+    /* Espaciados */
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 2rem;
+  
+    /* Radios y transiciones */
+    --radius-base: 0.5rem;
+    --transition-base: 0.3s;
+    
+    /* Tamaño Máximo */
+    --max-width: 1200px;
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: var(--font-family);
+    background: linear-gradient(
+      90deg,
+      var(--color-bg-start) 0%,
+      var(--color-bg-end) 100%
+    );
+    min-height: 100vh;
+    color: var(--color-text);
+    display: flex;
+    flex-direction: column;
+  }
+  
+  img {
+    display: block;
+    max-width: 100%;
+  }
+  
+  /* ===============================
+     2) NAVBAR
+  =============================== */
+  .navbar {
+    width: 100%;
+    padding: var(--spacing-md);
+  }
+  
+  .navbar-content {
+    margin: 0 auto;
+    max-width: var(--max-width);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .leaf-logo {
+    width: 60px;
+    height: auto;
+  }
+  
+  .btn-exit {
+    background-color: transparent;
+    color: var(--color-text);
+    border: 2px solid var(--color-text);
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius-base);
+    cursor: pointer;
+    font-weight: 600;
+    transition: background var(--transition-base);
+  }
+  
+  .btn-exit:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+  
+  /* ===============================
+     3) CONTENEDOR PRINCIPAL
+  =============================== */
+  .desc-lugar-page {
+    width: 100%;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: var(--spacing-lg) var(--spacing-md);
+  }
+  
+  /* TÍTULO SUPERIOR */
+  .page-title {
+    font-size: 1.8rem;
+    text-align: center;
+    margin-bottom: var(--spacing-lg);
+    font-weight: 600;
+    color: var(--color-text);
+  }
+  
+  /* ===============================
+     4) SECCIÓN CENTRAL
+  =============================== */
+  .desc-lugar-container {
+    display: flex;
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-lg);
+  }
+  
+  /* COLUMNA IZQUIERDA: FORMULARIO */
+  .desc-lugar-form {
+    flex: 1.3; /* Ajusta la proporción con la derecha */
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+  }
+  
+  /* Campos del formulario */
+  .form-field {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+  }
+  
+  .form-field label {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--color-text);
+  }
+  
+  .form-field input,
+  .form-field select,
+  .form-field textarea {
+    padding: 0.75rem;
+    font-size: 1rem;
+    color: var(--color-text);
+    border: 1px solid #ccc;
+    border-radius: var(--radius-base);
+    background-color: var(--color-card);
+  }
+  
+  /* Campo de Descripción con contador */
+  .textarea-field {
+    position: relative;
+  }
+  
+  .textarea-field .char-counter {
+    position: absolute;
+    bottom: var(--spacing-sm);
+    right: var(--spacing-sm);
+    font-size: 0.8rem;
+    color: #888;
+  }
+  
+  /* DIVISOR VERTICAL */
+  .vertical-divider {
+    width: 2px;
+    background-color: rgba(0,0,0,0.2);
+    margin: 0 var(--spacing-md);
+  }
+  
+  /* COLUMNA DERECHA: CONTADORES */
+  .desc-lugar-counters {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+  }
+  
+  /* Contador */
+  .counter-field {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .counter-field label {
+    font-size: 1rem;
+    font-weight: 500;
+  }
+  
+  .counter-controls {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+  }
+  
+  .counter-btn {
+    width: 32px;
+    height: 32px;
+    border: 1px solid #ccc;
+    background-color: var(--color-card);
+    border-radius: 50%;
+    font-size: 1.2rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background var(--transition-base);
+  }
+  
+  .counter-btn:hover {
+    background-color: #f0f0f0;
+  }
+  
+  .counter-value {
+    min-width: 20px;
+    text-align: center;
+    font-weight: 600;
+  }
+  
+  /* ===============================
+     5) SECCIÓN INFERIOR
+  =============================== */
+  .desc-lugar-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: auto; /* Empuja al final */
+  }
+  
+  /* Barra de Progreso */
+  .progress-bar {
+    flex: 1;
+    margin-right: var(--spacing-md);
+  }
+  
+  .progress-bg {
+    background-color: rgba(255, 255, 255, 0.3);
+    height: 8px;
+    border-radius: 4px;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .progress-fill {
+    background-color: var(--color-accent);
+    height: 100%;
+    width: 0%;
+    transition: width var(--transition-base);
+  }
+  
+  /* Botón Siguiente */
+  .btn-next {
+    background-color: var(--color-button);
+    color: #fff;
+    border-radius: var(--radius-base);
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    transition: background var(--transition-base);
+  }
+  
+  .btn-next:hover {
+    background-color: #0aa070; /* ajusta si quieres otra tonalidad */
+  }
+  
+  /* ===============================
+     6) RESPONSIVIDAD
+  =============================== */
+  @media (max-width: 900px) {
+    .desc-lugar-container {
+      flex-direction: column;
+    }
+    .vertical-divider {
+      display: none;
+    }
+  }
+  
