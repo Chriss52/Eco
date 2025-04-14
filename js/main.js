@@ -1,4 +1,4 @@
-// Animations
+// --- Overlay para cambiar entre registro y login ---
 const registerButton = document.getElementById("register");
 const loginButton = document.getElementById("login");
 const container = document.getElementById("container");
@@ -11,22 +11,7 @@ loginButton.addEventListener("click", () => {
   container.classList.remove("right-panel-active");
 });
 
-// Check Register Error
-const form = document.querySelector("form");
-const username = document.getElementById("username");
-const usernameError = document.querySelector("#username-error");
-const userLastname = document.getElementById("user-lastname");
-const userLastnameError = document.querySelector("#user-lastname-error");
-const email = document.getElementById("email");
-const phoneNumber = document.getElementById("phone-number");
-const phonerNumberError = document.querySelector("#phoner-number-error");
-const emailError = document.querySelector("#email-error");
-const password = document.getElementById("password");
-const confirmPassword = document.getElementById("confirm-password");
-const confirmPasswordError = document.querySelector("#confirm-password-error");
-const passwordError = document.querySelector("#password-error");
-
-// Show input error message
+// --- Funciones para mostrar errores y éxitos en campos ---
 function showError(input, message) {
   const formControl = input.parentElement;
   formControl.className = "form-control error";
@@ -34,7 +19,6 @@ function showError(input, message) {
   small.innerText = message;
 }
 
-// Show success outline
 function showSuccess(input) {
   const formControl = input.parentElement;
   formControl.className = "form-control success";
@@ -42,105 +26,162 @@ function showSuccess(input) {
   small.innerText = "";
 }
 
-// Check email is valid
-function checkEmail(email) {
+function checkEmail(emailVal) {
   const emailRegex = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
-  return emailRegex.test(email);
+  return emailRegex.test(emailVal);
 }
 
-phoneNumber.addEventListener("input", function () {
-  const phoneRegex = /^[0-9]{10}$/;
-  if (!phoneRegex.test(phoneNumber.value)) {
-    phonerNumberError.textContent = "*Phone number must be 10 digits.";
-  } else {
-    phonerNumberError.textContent = "";
-  }
-});
-
-email.addEventListener("input", function () {
-  if (!checkEmail(email.value)) {
-    emailError.textContent = "*Email is not valid";
-  } else {
-    emailError.textContent = "";
-  }
-});
-
-// Check length input user name
-username.addEventListener("input", function () {
-  if (username.value.length < 3) {
-    usernameError.textContent = "*Username must be at least 3 characters.";
-  } else if (username.value.length > 20) {
-    usernameError.textContent = "*Username must be less than 20 characters.";
-  } else {
-    usernameError.textContent = "";
-  }
-});
-
-userLastname.addEventListener("input", function () {
-  if (userLastname.value.length < 3) {
-    userLastnameError.textContent = "*Last name must be at least 3 characters.";
-  } else if (userLastname.value.length > 30) {
-    userLastnameError.textContent = "*Last name must be less than 30 characters.";
-  } else {
-    userLastnameError.textContent = "";
-  }
-});
-
-// Check length input password
-password.addEventListener("input", function () {
-  if (password.value.length < 8) {
-    passwordError.textContent = "*Password must be at least 8 characters.";
-  } else if (password.value.length > 20) {
-    passwordError.textContent = "*Password must be less than 20 characters.";
-  } else {
-    passwordError.textContent = "";
-  }
-});
-
-confirmPassword.addEventListener("input", function () {
-  if (password.value !== confirmPassword.value) {
-    confirmPasswordError.textContent = "*Passwords must match.";
-  } else {
-    confirmPasswordError.textContent = "";
-  }
-});
-
-// Check required fields
-function checkRequired(inputArr) {
-  let isRequired = false;
-  inputArr.forEach(function (input) {
-    if (input.value.trim() === "") {
-      showError(input, `*${getFieldName(input)} is required`);
-      isRequired = true;
-    } else {
-      showSuccess(input);
-    }
-  });
-
-  return isRequired;
+// --- Funciones para gestionar usuarios en localStorage ---
+function getUsers() {
+  const users = localStorage.getItem("users");
+  return users ? JSON.parse(users) : [];
 }
 
-// Get field name
-function getFieldName(input) {
-  return input.id.charAt(0).toUpperCase() + input.id.slice(1);
+function saveUsers(users) {
+  localStorage.setItem("users", JSON.stringify(users));
 }
 
-// Event listeners for register form
-form.addEventListener("submit", function (e) {
+function registerUser(user) {
+  const users = getUsers();
+  // Verificar si el correo ya está registrado
+  if (users.some(u => u.email === user.email)) {
+    alert("El usuario ya existe. Elige otro correo.");
+    return false;
+  }
+  users.push(user);
+  saveUsers(users);
+  alert("Registro exitoso");
+  return true;
+}
+
+// --- Registro de usuario ---
+const registerForm = document.getElementById("registerForm");
+registerForm.addEventListener("submit", function (e) {
   e.preventDefault();
 
-  if (!checkRequired([username, email, password, userLastname, phoneNumber])) {
-    // Additional checks can be added here if necessary
+  const username = document.getElementById("username").value.trim();
+  const lastname = document.getElementById("user-lastname").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const phone = document.getElementById("phone-number").value.trim();
+  // Nuevos campos: fecha de nacimiento, país y sexo
+  const birthday = document.getElementById("birthday").value;
+  const pais = document.getElementById("pais").value;
+  const sexo = document.getElementById("sexo").value;
+  const password = document.getElementById("password").value;
+  const confirmPassword = document.getElementById("confirm-password").value;
+  const role = document.getElementById("role").value;
+
+  // Validaciones básicas
+  if (username.length < 3) {
+    showError(
+      document.getElementById("username"),
+      "*El nombre debe tener al menos 3 caracteres"
+    );
+    return;
+  } else {
+    showSuccess(document.getElementById("username"));
+  }
+  if (lastname.length < 3) {
+    showError(
+      document.getElementById("user-lastname"),
+      "*El apellido debe tener al menos 3 caracteres"
+    );
+    return;
+  } else {
+    showSuccess(document.getElementById("user-lastname"));
+  }
+  if (!checkEmail(email)) {
+    showError(document.getElementById("email"), "*Correo inválido");
+    return;
+  } else {
+    showSuccess(document.getElementById("email"));
+  }
+  if (phone.length !== 10) {
+    showError(
+      document.getElementById("phone-number"),
+      "*El número debe tener 10 dígitos"
+    );
+    return;
+  } else {
+    showSuccess(document.getElementById("phone-number"));
+  }
+  // Validar campos nuevos
+  if (birthday === "") {
+    showError(
+      document.getElementById("birthday"),
+      "*Seleccione su fecha de nacimiento"
+    );
+    return;
+  } else {
+    showSuccess(document.getElementById("birthday"));
+  }
+  if (pais === "") {
+    showError(
+      document.getElementById("pais"),
+      "*Seleccione un país"
+    );
+    return;
+  } else {
+    showSuccess(document.getElementById("pais"));
+  }
+  if (sexo === "") {
+    showError(
+      document.getElementById("sexo"),
+      "*Seleccione su sexo"
+    );
+    return;
+  } else {
+    showSuccess(document.getElementById("sexo"));
+  }
+  if (password.length < 8) {
+    showError(
+      document.getElementById("password"),
+      "*La contraseña debe tener al menos 8 caracteres"
+    );
+    return;
+  } else {
+    showSuccess(document.getElementById("password"));
+  }
+  if (password !== confirmPassword) {
+    showError(
+      document.getElementById("confirm-password"),
+      "*Las contraseñas no coinciden"
+    );
+    return;
+  } else {
+    showSuccess(document.getElementById("confirm-password"));
+  }
+  if (role === "") {
+    const roleEl = document.getElementById("role");
+    showError(roleEl, "*Seleccione un rol");
+    return;
+  } else {
+    const roleEl = document.getElementById("role");
+    roleEl.parentElement.className = "form-control";
+    const small = roleEl.parentElement.querySelector("small");
+    small.innerText = "";
+  }
+
+  // Crear el objeto usuario con los nuevos campos
+  const user = {
+    username,
+    lastname,
+    email,
+    phone,
+    birthday,
+    pais,
+    sexo,
+    password,
+    role,
+  };
+  if (registerUser(user)) {
+    registerForm.reset();
+    // Alternar a la vista de login después de un registro exitoso
+    container.classList.remove("right-panel-active");
   }
 });
 
-// Check Login Error
-let lgForm = document.querySelector(".form-lg");
-let lgEmail = document.querySelector(".email-2");
-let lgEmailError = document.querySelector(".email-error-2");
-let lgPassword = document.querySelector(".password-2");
-let lgPasswordError = document.querySelector(".password-error-2");
-
+// --- Validaciones para el formulario de Login ---
 function showError2(input, message) {
   const formControl2 = input.parentElement;
   formControl2.className = "form-control2 error";
@@ -155,57 +196,52 @@ function showSuccess2(input) {
   small2.innerText = "";
 }
 
-// Check email is valid for login
-function checkEmail2(email) {
+function checkEmail2(emailVal) {
   const emailRegex2 = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
-  return emailRegex2.test(email);
+  return emailRegex2.test(emailVal);
 }
 
-lgEmail.addEventListener("input", function () {
-  if (!checkEmail2(lgEmail.value)) {
-    lgEmailError.textContent = "*Email is not valid";
-  } else {
-    lgEmailError.textContent = "";
-  }
-});
-
-lgPassword.addEventListener("input", function () {
-  if (lgPassword.value.length < 8) {
-    lgPasswordError.textContent = "*Password must be at least 8 characters.";
-  } else if (lgPassword.value.length > 20) {
-    lgPasswordError.textContent = "*Password must be less than 20 characters.";
-  } else {
-    lgPasswordError.textContent = "";
-  }
-});
-
-function checkRequiredLg(inputArr) {
-  let isRequiredLg = false;
-  inputArr.forEach(function (input) {
-    if (input.value.trim() === "") {
-      showError2(
-        input,
-        `*${getFieldNameLg(input)} is required`
-      );
-      isRequiredLg = true;
-    } else {
-      showSuccess2(input);
-    }
-  });
-
-  return isRequiredLg;
-}
-
-function getFieldNameLg(input) {
-  return input.id.charAt(0).toUpperCase() + input.id.slice(1);
-}
-
-lgForm.addEventListener("submit", function (e) {
+const loginForm = document.getElementById("loginForm");
+loginForm.addEventListener("submit", function (e) {
   e.preventDefault();
 
-  if (!checkRequiredLg([lgEmail, lgPassword])) {
-    if(checkEmail2(lgEmail.value)){
-      window.location.href = "index.html";
-    };
+  const loginEmail = document.getElementById("loginEmail").value.trim();
+  const loginPassword = document.getElementById("loginPassword").value;
+
+  if (!checkEmail2(loginEmail)) {
+    showError2(document.querySelector(".email-2"), "*Correo inválido");
+    return;
+  } else {
+    showSuccess2(document.querySelector(".email-2"));
+  }
+  if (loginPassword.length < 8) {
+    showError2(
+      document.querySelector(".password-2"),
+      "*La contraseña debe tener al menos 8 caracteres"
+    );
+    return;
+  } else {
+    showSuccess2(document.querySelector(".password-2"));
+  }
+
+  const users = getUsers();
+  const user = users.find(
+    (u) => u.email === loginEmail && u.password === loginPassword
+  );
+  if (!user) {
+    alert("Credenciales incorrectas");
+    return;
+  }
+
+  sessionStorage.setItem("loggedUser", JSON.stringify(user));
+  alert(`Bienvenido ${user.username}. Rol: ${user.role}`);
+
+  // Redirigir según rol
+  if (user.role === "huesped") {
+    window.location.href = "exAlojamiento.html";
+  } else if (user.role === "anfitrion") {
+    window.location.href = "anfitrionReportes.html";
+  } else if (user.role === "admin") {
+    window.location.href = "adminView.html";
   }
 });

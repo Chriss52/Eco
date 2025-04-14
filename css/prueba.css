@@ -1,0 +1,343 @@
+/* 
+========================================
+ VARIABLES GLOBALES
+========================================
+*/
+:root {
+    --color-primary-bg: linear-gradient(135deg, #68b59a 0%, #63a58e 100%);
+    --color-card-bg: #ffffff;
+    --color-sidebar-bg: #ffffff;
+    --color-text: #222222;
+    --color-text-muted: #666666;
+    --radius-card: 16px;
+    --radius-input: 8px;
+    --shadow-card: 0 4px 12px rgba(0, 0, 0, 0.1);
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 1.5rem;
+    --font-body: 'Arial', sans-serif;
+  }
+  
+  /* 
+  ========================================
+   RESETEO BÁSICO Y ESTILOS GENERALES
+  ========================================
+  */
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  html,
+  body {
+    height: 100%;
+    font-family: var(--font-body);
+    background: var(--color-primary-bg);
+    color: var(--color-text);
+  }
+  
+  img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
+  }
+  
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  /* 
+  ========================================
+   HEADER PRINCIPAL
+  ========================================
+  */
+  .main-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--spacing-md);
+    background: transparent;
+  }
+  
+  .logo-container {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+  }
+  
+  .logo {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .brand-name {
+    font-weight: bold;
+    font-size: 1.25rem;
+  }
+  
+  .main-nav ul {
+    display: flex;
+    gap: var(--spacing-md);
+  }
+  
+  .main-nav a:hover {
+    text-decoration: underline;
+  }
+  
+  .user-profile img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+  }
+  
+  /* 
+  ========================================
+   LAYOUT CONTENEDOR
+  ========================================
+  */
+  .layout-container {
+    display: flex;
+    flex-direction: column; /* Mobile-first: en pantalla pequeñas, se apilan */
+    gap: var(--spacing-md);
+    margin: var(--spacing-md);
+  }
+  
+  /* 
+  ========================================
+   SIDEBAR (barra lateral)
+  ========================================
+  */
+  .sidebar {
+    background-color: transparent;
+  }
+  
+  .profile-card {
+    background-color: var(--color-sidebar-bg);
+    border-radius: var(--radius-card);
+    box-shadow: var(--shadow-card);
+    padding: var(--spacing-md);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .profile-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+  }
+  
+  .profile-info {
+    text-align: center;
+    margin: var(--spacing-md) 0;
+  }
+  
+  .username {
+    font-size: 1.1rem;
+    margin-bottom: var(--spacing-sm);
+  }
+  
+  .user-status,
+  .last-login {
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+  }
+  
+  /* Menú de usuario */
+  .user-menu ul {
+    list-style: none;
+    width: 100%;
+    margin-top: var(--spacing-md);
+  }
+  
+  .user-menu li a {
+    display: flex;
+    align-items: center;
+    padding: var(--spacing-sm);
+    gap: var(--spacing-sm);
+    border-radius: var(--radius-input);
+    color: var(--color-text);
+    font-weight: 500;
+  }
+  
+  .user-menu li a.active,
+  .user-menu li a:hover {
+    background-color: #f3f3f3;
+  }
+  
+  /* 
+  ========================================
+   CONTENIDO PRINCIPAL
+  ========================================
+  */
+  .main-content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+  }
+  
+  /* 
+  ========================================
+   SECCIÓN: INFORMACIÓN PERSONAL
+  ========================================
+  */
+  .personal-info-section,
+  .favorites-section {
+    background-color: var(--color-card-bg);
+    border-radius: var(--radius-card);
+    box-shadow: var(--shadow-card);
+    padding: var(--spacing-md);
+  }
+  
+  .section-title {
+    font-size: 1.5rem;
+    margin-bottom: var(--spacing-md);
+  }
+  
+  /* Card de info personal */
+  .info-card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+  }
+  
+  .form-row {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+  }
+  
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+  }
+  
+  label {
+    font-weight: 600;
+  }
+  
+  .input-wrapper {
+    position: relative;
+  }
+  
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="password"],
+  input[type="date"] {
+    width: 100%;
+    padding: 0.5rem 2rem 0.5rem 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: var(--radius-input);
+    font-size: 1rem;
+  }
+  
+  .edit-icon {
+    position: absolute;
+    right: 0.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    color: var(--color-text-muted);
+    font-size: 1rem;
+  }
+  
+  /* Icono de bandera dentro del input */
+  .flag-icon {
+    position: absolute;
+    right: 2.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
+  /* 
+  ========================================
+   SECCIÓN: FAVORITOS
+  ========================================
+  */
+  .favorites-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-md);
+  }
+  
+  /* Tarjeta individual de favorito */
+  .favorite-card {
+    background-color: #f9f9f9;
+    border-radius: var(--radius-input);
+    overflow: hidden;
+    box-shadow: var(--shadow-card);
+    text-align: center;
+    padding-bottom: var(--spacing-md);
+  }
+  
+  .favorite-card h2 {
+    font-size: 1.2rem;
+    margin: var(--spacing-sm);
+  }
+  
+  .favorite-card p {
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+  }
+  
+  /* 
+  ========================================
+   FOOTER
+  ========================================
+  */
+  .main-footer {
+    text-align: center;
+    padding: var(--spacing-md);
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+  }
+  
+  /* 
+  ========================================
+   MEDIA QUERIES 
+  ========================================
+  */
+  
+  /* Para tablets y pantallas medianas */
+  @media (min-width: 768px) {
+    .layout-container {
+      flex-direction: row;
+    }
+    .sidebar {
+      flex: 0 0 300px;
+    }
+    .main-content {
+      flex: 1;
+    }
+    .form-row {
+      flex-direction: row;
+    }
+    .form-row .form-group {
+      width: 50%;
+    }
+    .flag-icon {
+      right: 3rem;
+    }
+    .favorites-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  
+  /* Para pantallas grandes (desktop) */
+  @media (min-width: 1200px) {
+    .main-header {
+      padding: var(--spacing-lg) var(--spacing-md);
+    }
+    .layout-container {
+      margin: var(--spacing-lg);
+    }
+  }
+  

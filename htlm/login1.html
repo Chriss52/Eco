@@ -4,8 +4,10 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Andev web - Validar formulario</title>
-    <link rel="stylesheet" href="css/styles1.css" />
+    <title>EcoStayRD - Registro y Login</title>
+    <!-- Enlaza tu hoja de estilos externa -->
+    <link rel="stylesheet" href="/css/styles1.css" />
+    <!-- Font Awesome para iconos -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -16,113 +18,143 @@
   </head>
   <body>
     <div class="container" id="container">
+      <!-- FORMULARIO DE REGISTRO -->
       <div class="form-container register-container">
-        <form>
+        <form id="registerForm">
           <h1>Regístrate aquí</h1>
           <div class="form-control">
-            <input type="text" id="username" placeholder="Nombre" />
+            <input type="text" id="username" placeholder="Nombre" required />
             <small id="username-error"></small>
             <span></span>
           </div>
           <div class="form-control">
-            <input type="text" id="user-lastname" placeholder="Apellido" />
+            <input type="text" id="user-lastname" placeholder="Apellido" required />
             <small id="user-lastname-error"></small>
             <span></span>
           </div>
           <div class="form-control">
-            <input type="email" id="email" placeholder="Correo electrónico" />
+            <input type="email" id="email" placeholder="Correo electrónico" required />
             <small id="email-error"></small>
             <span></span>
           </div>
           <div class="form-control">
-            <input type="tel" id="phone-number" placeholder="Numero celular" pattern="[0-9]{10}"/>
+            <input type="tel" id="phone-number" placeholder="Número celular" pattern="[0-9]{10}" required />
             <small id="phone-number-error"></small>
             <span></span>
           </div>
+          <!-- NUEVOS CAMPOS AGREGADOS -->
           <div class="form-control">
-            <input type="password" id="password" placeholder="Contraseña" />
+            <input type="date" id="birthday" required />
+            <small id="birthday-error"></small>
+            <span></span>
+          </div>
+          <div class="form-control">
+            <select id="pais" required>
+              <option value="">Selecciona tu país</option>
+              <option value="do">República Dominicana</option>
+              <option value="mx">México</option>
+              <option value="us">Estados Unidos</option>
+              <!-- Puedes agregar más países -->
+            </select>
+            <small id="pais-error"></small>
+            <span></span>
+          </div>
+          <div class="form-control">
+            <select id="sexo" required>
+              <option value="">Selecciona tu sexo</option>
+              <option value="masculino">Masculino</option>
+              <option value="femenino">Femenino</option>
+              <option value="otro">Otro</option>
+            </select>
+            <small id="sexo-error"></small>
+            <span></span>
+          </div>
+          <!-- FIN DE CAMPOS NUEVOS -->
+          <div class="form-control">
+            <input type="password" id="password" placeholder="Contraseña" required />
             <small id="password-error"></small>
             <span></span>
           </div>
           <div class="form-control">
-            <input type="password" id="confirm-password" placeholder="Confirmar Contraseña" />
+            <input type="password" id="confirm-password" placeholder="Confirmar Contraseña" required />
             <small id="confirm-password-error"></small>
             <span></span>
           </div>
-          <button type="submit" value="submit">Registrar</button>
+          <!-- Campo para seleccionar rol -->
+          <div class="form-control">
+            <select id="role" required>
+              <option value="">Selecciona un rol</option>
+              <option value="huesped">Huésped</option>
+              <option value="anfitrion">Anfitrión</option>
+              <option value="admin">Admin</option>
+            </select>
+            <small id="role-error"></small>
+            <span></span>
+          </div>
+          <button type="submit">Registrar</button>
           <span>o usa tu cuenta</span>
           <div class="social-container">
-            <a href="#" class="social"
-              ><i class="fa-brands fa-facebook-f"></i
-            ></a>
+            <a href="#" class="social"><i class="fa-brands fa-facebook-f"></i></a>
             <a href="#" class="social"><i class="fa-brands fa-google"></i></a>
           </div>
         </form>
       </div>
 
+      <!-- FORMULARIO DE LOGIN -->
       <div class="form-container login-container">
-        <form class="form-lg">
+        <form class="form-lg" id="loginForm">
           <h1>Inicia sesión aquí</h1>
           <div class="form-control2">
-            <input type="email" class="email-2" placeholder="Correo electrónico" />
+            <input type="email" class="email-2" id="loginEmail" placeholder="Correo electrónico" required />
             <small class="email-error-2"></small>
             <span></span>
           </div>
           <div class="form-control2">
-            <input type="password" class="password-2" placeholder="Contraseña" />
+            <input type="password" class="password-2" id="loginPassword" placeholder="Contraseña" required />
             <small class="password-error-2"></small>
             <span></span>
           </div>
-
           <div class="content">
             <div class="checkbox">
               <input type="checkbox" name="checkbox" id="checkbox" />
-              <label for="">Recuérdame</label>
+              <label for="checkbox">Recuérdame</label>
             </div>
             <div class="pass-link">
               <a href="#">¿Olvidaste la contraseña?</a>
             </div>
           </div>
-          <button type="submit" value="submit">Iniciar sesión</button>
+          <button type="submit">Iniciar sesión</button>
           <span>O usa tu cuenta</span>
           <div class="social-container">
-            <a href="#" class="social"
-              ><i class="fa-brands fa-facebook-f"></i
-            ></a>
+            <a href="#" class="social"><i class="fa-brands fa-facebook-f"></i></a>
             <a href="#" class="social"><i class="fa-brands fa-google"></i></a>
           </div>
         </form>
       </div>
 
+      <!-- PANEL DE OVERLAY -->
       <div class="overlay-container">
         <div class="overlay">
           <div class="overlay-panel overlay-left">
-            <h1 class="title">
-              EcoStayRD
-            </h1>
+            <h1 class="title">EcoStayRD</h1>
             <p>Si tienes una cuenta, inicia sesión aquí</p>
             <button class="ghost" id="login">
-              Iniciar sesión
-              <i class="fa-solid fa-arrow-left"></i>
+              Iniciar sesión <i class="fa-solid fa-arrow-left"></i>
             </button>
           </div>
-
           <div class="overlay-panel overlay-right">
-            <h1 class="title">
-              Comienza tu <br />
-              viaje ahora
-            </h1>
+            <h1 class="title">Comienza tu viaje ahora</h1>
             <p>
               Si aún no tienes una cuenta, únete a nosotros y comienza tu viaje
             </p>
             <button class="ghost" id="register">
-              Registrarse
-              <i class="fa-solid fa-arrow-right"></i>
+              Registrarse <i class="fa-solid fa-arrow-right"></i>
             </button>
           </div>
         </div>
       </div>
     </div>
+    <!-- Enlaza el archivo JavaScript -->
+    <script src="/js/main.js"></script>
   </body>
-  <script src="main.js"></script>
 </html>

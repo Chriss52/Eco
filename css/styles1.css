@@ -1,8 +1,7 @@
+/* Import Google Fonts */
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
 
 * {
-  /* margin: 0;
-    padding: 0; */
   box-sizing: border-box;
 }
 
@@ -20,8 +19,7 @@ body {
 h1 {
   font-weight: 700;
   letter-spacing: -1.5px;
-  margin: 0;
-  margin-bottom: 15px;
+  margin: 0 0 15px;
 }
 
 h1.title {
@@ -134,14 +132,27 @@ button.ghost i {
   z-index: 6;
 }
 
-button.ghost i.register {
-  right: 70px;
+.social-container {
+  margin: 20px 0;
 }
 
-button.ghost i.login {
-  left: 70px;
+.social-container a {
+  border: 1px solid #dddddd;
+  border-radius: 50%;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 5px;
+  height: 40px;
+  width: 40px;
+  transition: 0.3s ease-in-out;
 }
 
+.social-container a:hover {
+  border: 1px solid #4bb6b7;
+}
+
+/* FORMULARIO Y CONTENEDORES */
 form {
   background-color: #fff;
   display: flex;
@@ -158,14 +169,41 @@ input {
   outline: none;
   border: none;
   border-bottom: 2px solid #adadad;
-  padding: 12px 0px;
+  padding: 12px 0;
   margin: 8px 0;
   width: 100%;
 }
 
+/* Estilos para los listbox (select) */
+select {
+  background-color: #fff;
+  outline: none;
+  border: none;
+  border-bottom: 2px solid #adadad;
+  padding: 12px 30px 12px 0;
+  margin: 8px 0;
+  width: 100%;
+  font-family: "Poppins", sans-serif;
+  font-size: 15px;
+  color: #333;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  /* Ícono de flecha personalizada (SVG en data URI) */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='5'%3E%3Cpath fill='%23333' d='M0 0l5 5 5-5z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+}
+
+select:focus {
+  border-bottom-color: #2691d9;
+}
+
+/* CONTENEDOR PRINCIPAL */
 .container {
   border-radius: 25px;
-  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 0px 10px rgba(0, 0, 0, 0.22);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),
+    0 0px 10px rgba(0, 0, 0, 0.22);
   position: relative;
   overflow: hidden;
   width: 868px;
@@ -174,6 +212,16 @@ input {
   max-height: 100%;
 }
 
+/* AÑADIDO: Scroll para el contenedor de registro */
+.register-container {
+  left: 0;
+  width: 50%;
+  opacity: 0;
+  z-index: 1;
+  overflow-y: auto;
+}
+
+/* Los demás contenedores mantienen su estilo */
 .form-container {
   position: absolute;
   top: 0;
@@ -181,50 +229,13 @@ input {
   transition: all 0.6s ease-in-out;
 }
 
-.form-control {
-  width: 100%;
-  position: relative;
-}
-
+.form-control,
 .form-control2 {
   width: 100%;
   position: relative;
 }
 
-.form-control2 span {
-  position: absolute;
-  border-bottom: 3px solid #2691d9;
-  left: 0;
-  bottom: 8px;
-  width: 0%;
-  transition: all 0.3s ease;
-}
-
-.form-control2 input:focus ~ span {
-  width: 100%;
-}
-.form-control small {
-  color: red;
-  position: absolute;
-  top: 50px;
-  left: 0;
-  font-size: 12px;
-  z-index: 100;
-}
-
-.form-control span {
-  position: absolute;
-  border-bottom: 3px solid #2691d9;
-  left: 0;
-  bottom: 8px;
-  width: 0%;
-  transition: all 0.3s ease;
-}
-
-.form-control input:focus ~ span {
-  width: 100%;
-}
-
+.form-control small,
 .form-control2 small {
   color: red;
   position: absolute;
@@ -234,6 +245,7 @@ input {
   z-index: 100;
 }
 
+.form-control span,
 .form-control2 span {
   position: absolute;
   border-bottom: 3px solid #2691d9;
@@ -243,6 +255,7 @@ input {
   transition: all 0.3s ease;
 }
 
+.form-control input:focus ~ span,
 .form-control2 input:focus ~ span {
   width: 100%;
 }
@@ -257,14 +270,6 @@ input {
   transform: translateX(100%);
 }
 
-.register-container {
-  /* position: relative; */
-  left: 0;
-  width: 50%;
-  opacity: 0;
-  z-index: 1;
-}
-
 .container.right-panel-active .register-container {
   transform: translateX(100%);
   opacity: 1;
@@ -273,14 +278,11 @@ input {
 }
 
 @keyframes show {
-  0%,
-  49.99% {
+  0%, 49.99% {
     opacity: 0;
     z-index: 1;
   }
-
-  50%,
-  100% {
+  50%, 100% {
     opacity: 1;
     z-index: 5;
   }
@@ -322,11 +324,7 @@ input {
   right: 0;
   top: 0;
   bottom: 0;
-  background: linear-gradient(
-    to top,
-    rgba(46, 94, 109, 0.4) 40%,
-    rgba(46, 94, 109, 0)
-  );
+  background: linear-gradient(to top, rgba(46,94,109,0.4) 40%, rgba(46,94,109,0));
 }
 
 .container.right-panel-active .overlay {
@@ -365,22 +363,200 @@ input {
   transform: translateX(20%);
 }
 
-.social-container {
-  margin: 20px 0;
+/* ============================
+       FOOTER - NUEVO FOOTER
+============================ */
+.footer {
+  background-color: #3d3d3d;
+  color: #bebdbd;
+  padding: 2rem 0;
+  position: relative;
+  font-family: "Poppins", sans-serif;
 }
 
-.social-container a {
-  border: 1px solid #dddddd;
-  border-radius: 50%;
-  display: inline-flex;
-  justify-content: center;
+.footer__inner {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.footer__col {
+  flex: 1 1 250px;
+}
+
+/* Columna de Brand y Contacto */
+.footer__col--brand .footer__logo img {
+  max-height: 40px;
+  margin-bottom: 1rem;
+}
+
+.footer__contact-block {
+  margin-bottom: 1.5rem;
+}
+
+.footer__title {
+  color: #fff;
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.footer__subtitle {
+  font-size: 0.9rem;
+}
+
+.footer__social-block {
+  margin-top: 1rem;
+}
+
+.footer__social-text {
+  margin-bottom: 0.5rem;
+}
+
+.footer__social-icons a {
+  color: #bebdbd;
+  margin-right: 0.5rem;
+  font-size: 1rem;
+  transition: color 0.2s ease-in-out;
+}
+
+.footer__social-icons a:hover {
+  color: #fff;
+}
+
+/* Columna de Suscripción */
+.footer__col--subscribe {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.footer__subscribe-title {
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.footer__subscribe-form {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.footer__subscribe-input {
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #555;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  flex: 1;
+}
+
+.footer__subscribe-button {
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  background: #68b347;
+  color: #fff;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.footer__subscribe-button:hover {
+  background: #4f8c34;
+}
+
+/* Columna de Enlaces */
+.footer__col--links {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.footer__links-group {
+  min-width: 120px;
+}
+
+.footer__links-title {
+  color: #fff;
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.footer__links-group ul li a {
+  display: block;
+  margin: 0.4rem 0;
+  color: #bebdbd;
+  font-size: 0.9rem;
+  transition: color 0.2s ease-in-out;
+}
+
+.footer__links-group ul li a:hover {
+  color: #fff;
+}
+
+/* Bloque inferior */
+.footer__bottom {
+  margin-top: 2rem;
+  border-top: 1px solid #555;
+  padding-top: 1rem;
+  display: flex;
+  justify-content: space-between;
   align-items: center;
-  margin: 0 5px;
-  height: 40px;
-  width: 40px;
-  transition: 0.3s ease-in-out;
 }
 
-.social-container a:hover {
-  border: 1px solid #4bb6b7;
+.footer__legal {
+  color: #999;
+  font-size: 0.85rem;
+}
+
+/* ============================
+     RESPONSIVE ESTILOS
+============================ */
+@media (max-width: 768px) {
+  .footer__inner {
+    flex-direction: column;
+  }
+  .footer__col--links {
+    flex-direction: column;
+  }
+}
+
+@media (min-width: 600px) {
+  .header__search-container {
+    padding: var(--spacing-xs) var(--spacing-md);
+  }
+  .search-inputs {
+    gap: var(--spacing-sm);
+  }
+  .popular__heading {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+@media (min-width: 992px) {
+  .footer__top {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  .footer__brand {
+    flex: 1;
+  }
+  .footer__links {
+    flex: 2;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  .footer__bottom {
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+  }
 }
