@@ -1,28 +1,16 @@
-/* ===============================
-   1) VARIABLES Y RESET
-=============================== */
 :root {
-  /* Gradiente verde oscuro */
   --color-bg-start: #072720;
-  --color-bg-end: #116b51;
-
-  /* Fondo card y bordes */
+  --color-bg-end: #116B51;
   --color-card: #11412e;
   --color-border: #156f4d;
-  --color-text: #ffffff;
   --color-accent: #0ec383;
-
-  --font-family: "Poppins", sans-serif;
-
-  /* Espaciados */
+  --color-text: #ffffff;
+  --font-family: 'Poppins', sans-serif;
   --spacing-sm: 0.5rem;
   --spacing-md: 1rem;
   --spacing-lg: 2rem;
-
-  /* Radios y transiciones */
   --radius-base: 1rem;
-  --transition-base: 0.3s;
-
+  --transition: 0.3s;
   --max-width: 1200px;
 }
 
@@ -30,36 +18,26 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  border: none;
 }
 
 body {
   font-family: var(--font-family);
-  background: linear-gradient(
-    135deg,
-    var(--color-bg-start) 0%,
-    var(--color-bg-end) 100%
-  );
+  background: linear-gradient(135deg, var(--color-bg-start) 0%, var(--color-bg-end) 100%);
   color: var(--color-text);
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
 }
 
-img {
-  display: block;
-  max-width: 100%;
+.indica-precio-detalle {
+  position: relative;
+  min-height: 100vh;
 }
 
-/* ===============================
-   2) NAVBAR
-=============================== */
+/* Navbar */
 .navbar {
   width: 100%;
   padding: var(--spacing-md);
-  /* Podrías usar un background-image si lo deseas */
+  background-image: url("../assets/rectangle-2350.svg");
 }
-
 .navbar-container {
   max-width: var(--max-width);
   margin: 0 auto;
@@ -67,170 +45,134 @@ img {
   align-items: center;
   justify-content: space-between;
 }
-
 .leaf-logo {
   width: 60px;
   height: auto;
 }
-
 .btn-exit {
   background-color: rgba(255, 255, 255, 0.15);
   color: var(--color-text);
   padding: 0.5rem 1rem;
   border-radius: var(--radius-base);
   cursor: pointer;
-  transition: background var(--transition-base);
+  transition: background var(--transition);
 }
-
 .btn-exit:hover {
   background-color: rgba(255, 255, 255, 0.3);
 }
 
-/* ===============================
-   3) CONTENEDOR PRINCIPAL
-=============================== */
-.price-page {
-  flex: 1;
-  max-width: var(--max-width);
-  margin: 0 auto;
-  display: flex;
-  align-items: center;     /* Centra verticalmente */
-  justify-content: center; /* Centra horizontalmente */
+/* Contenido central */
+.main-content {
+  text-align: center;
   padding: var(--spacing-lg) var(--spacing-md);
 }
-
-/* CARD */
-.price-card {
-  background-color: var(--color-card);
-  border: 2px solid var(--color-border);
-  border-radius: var(--radius-base);
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
-  padding: var(--spacing-lg);
-  width: 100%;
-  max-width: 700px;
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-lg);
-}
-
-/* TÍTULO */
-.price-card h1 {
-  font-size: 2rem;
-  text-align: center;
+.title {
+  font-family: 'Poppins-SemiBold', sans-serif;
+  font-size: 60px;
+  line-height: 60px;
   font-weight: 600;
+  margin-bottom: var(--spacing-lg);
 }
-
-/* SUBTÍTULO */
 .subtitle {
-  font-size: 1.1rem;
-  text-align: center;
-  opacity: 0.85;
+  font-family: 'Poppins-Regular', sans-serif;
+  font-size: 34px;
+  line-height: 21px;
+  margin-bottom: var(--spacing-lg);
 }
 
-/* ===============================
-   4) SECCIÓN INPUT DE PRECIO
-=============================== */
-.price-input-section {
-  text-align: center;
-}
-
-.price-wrapper {
+/* Sección de precio */
+.precio-input {
   display: inline-flex;
   align-items: center;
   gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-sm);
 }
-
-.large-dollar {
-  font-size: 5rem;
-  font-weight: 600;
+.dollar-symbol {
+  font-size: 200px;
+  font-family: 'Poppins-SemiBold', sans-serif;
+  line-height: 1;
 }
-
-.price-textarea {
-  width: 180px;
-  height: 100px;
+.price-input-field {
+  width: 10rem;
+  height: 10rem;
   background: transparent;
+  border: none;
   border-bottom: 2px solid var(--color-text);
-  font-size: 4rem;
-  font-weight: 600;
   color: var(--color-text);
+  font-size: 8rem;
+  font-weight: 600;
   text-align: center;
   resize: none;
   outline: none;
 }
-
-/* Texto de “Precio para el huésped…” */
-.price-huesped {
-  margin-top: var(--spacing-sm);
-  font-size: 1rem;
-  opacity: 0.9;
+.precio-para-el-huesped {
+  font-family: 'Poppins-Regular', sans-serif;
+  font-size: 24px;
+  margin-top: var(--spacing-md);
 }
 
-.price-huesped .price-amount {
-  font-weight: 600;
-  margin-left: 0.3rem;
-}
-
-/* ===============================
-   5) DESGLOSE DE COSTOS
-=============================== */
+/* Desglose de costos */
 .price-breakdown {
-  background-color: rgba(255, 255, 255, 0.05);
+  background: transparent;
   border: 2px solid var(--color-border);
-  border-radius: var(--radius-base);
+  border-radius: 53px;
+  width: 596px;
+  height: 389px;
+  margin: var(--spacing-lg) auto;
   padding: var(--spacing-md);
-  max-width: 500px;
-  margin: 0 auto;
 }
-
 .price-breakdown ul {
   list-style: none;
   display: flex;
   flex-direction: column;
   gap: var(--spacing-sm);
+  margin-top: var(--spacing-md);
 }
-
-.price-breakdown li {
+.breakdown-item {
+  font-family: 'Poppins-Regular', sans-serif;
+  font-size: 24px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 1rem;
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-  padding-bottom: 0.5rem;
+  padding-bottom: var(--spacing-sm);
 }
 
-/* ===============================
-   6) BOTÓN SIGUIENTE
-=============================== */
-.btn-next-container {
+/* Botón "Siguiente" */
+.footer-btn {
   display: flex;
   justify-content: flex-end;
+  padding: var(--spacing-md);
 }
-
-.btn-next {
-  background-color: var(--color-accent);
+.btn-siguiente {
+  background: #1c7c4c;
   color: var(--color-text);
-  border: none;
-  padding: 0.8rem 2rem;
-  border-radius: var(--radius-base);
-  font-size: 1rem;
-  font-weight: 600;
+  font-family: 'Mulish-ExtraBold', sans-serif;
+  font-size: 24px;
+  padding: 1rem 2rem;
+  border-radius: 40px;
+  box-shadow: 0 8px 20px rgba(17, 107, 81, 1);
   cursor: pointer;
-  transition: background var(--transition-base);
+  transition: background var(--transition);
+}
+.btn-siguiente:hover {
+  background: #10ad70;
 }
 
-.btn-next:hover {
-  background-color: #10ad70;
-}
-
-/* ===============================
-   7) RESPONSIVIDAD
-=============================== */
+/* Responsividad */
 @media (max-width: 768px) {
-  .price-wrapper {
-    flex-direction: column;
+  .title {
+    font-size: 40px;
+    line-height: 40px;
   }
-  .large-dollar,
-  .price-textarea {
-    font-size: 3rem;
+  .subtitle {
+    font-size: 24px;
+  }
+  .price-input-field {
+    font-size: 150px;
+  }
+  .price-breakdown {
+    width: 90%;
+    height: auto;
   }
 }
