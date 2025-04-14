@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Historial de Reservas</title>
+  <!-- En caso de usar una fuente externa (ej. Inter), se puede enlazar aquí -->
+  <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"> -->
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* CSS inicial (opcional: puede ir en un archivo separado styles.css) */
+    
+    /* Variables CSS para paleta, tipografía y medidas */
+    :root {
+      --color-bg: #ffffff;
+      --color-text: #1f1f1f;
+      --color-border: #e8e8e8;
+      --color-green: #28c76f;    /* para estados completado */
+      --color-orange: #ffa800;   /* para estados pendientes */
+      --color-red: #ea5455;      /* para estados cancelados */
+      --font-family: 'Inter', sans-serif;
+      --header-padding: 1rem;
+      --section-padding: 2rem;
+      --max-width: 1200px;
+    }
+    
+    /* Estilos básicos y responsividad mobile-first */
+    * {
+      box-sizing: border-box;
+    }
+    
+    body {
+      margin: 0;
+      font-family: var(--font-family);
+      background-color: var(--color-bg);
+      color: var(--color-text);
+      line-height: 1.5;
+    }
+    
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    
+    /* Contenedor principal para centrar el contenido */
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 var(--section-padding);
+    }
+    
+    /* ---------- Header ---------- */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: var(--header-padding);
+      border-bottom: 1px solid var(--color-border);
+      background-color: var(--color-bg);
+    }
+    
+    header h1 {
+      font-size: 1.5rem;
+      margin: 0;
+    }
+    
+    .user-area {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    
+    .user-area span {
+      font-size: 1rem;
+      font-weight: 600;
+    }
+    
+    /* Botón de acción en el header */
+    .btn-action {
+      padding: 0.5rem 1rem;
+      background-color: var(--color-green);
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 0.875rem;
+    }
+    
+    /* ---------- Dashboard / Sección de métricas ---------- */
+    .dashboard {
+      margin-top: 2rem;
+    }
+    
+    .dashboard h2 {
+      font-size: 1.25rem;
+      margin-bottom: 1rem;
+    }
+    
+    /* Contenedor de tarjetas estadísticas */
+    .stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    
+    .stat-card {
+      background-color: #f7f7f7;
+      padding: 1rem;
+      border: 1px solid var(--color-border);
+      border-radius: 6px;
+      flex: 1 1 calc(50% - 1rem); /* 2 columnas en mobile, se pueden ajustar con media queries */
+      min-width: 200px;
+    }
+    
+    .stat-card h3 {
+      margin: 0 0 0.5rem 0;
+      font-size: 1rem;
+      font-weight: 600;
+    }
+    
+    .stat-card p {
+      margin: 0;
+      font-size: 1.25rem;
+      font-weight: bold;
+    }
+    
+    /* ---------- Sección de Tabla ---------- */
+    .reservations {
+      margin-top: 2rem;
+    }
+    
+    .reservations table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    
+    .reservations th,
+    .reservations td {
+      padding: 0.75rem 1rem;
+      text-align: left;
+      border-bottom: 1px solid var(--color-border);
+      font-size: 0.875rem;
+    }
+    
+    .reservations th {
+      background-color: #f2f2f2;
+    }
+    
+    /* Ejemplo de estilos para los estados dentro de la tabla */
+    .status {
+      padding: 0.25rem 0.5rem;
+      border-radius: 4px;
+      font-weight: 600;
+      text-align: center;
+    }
+    
+    .status.completado {
+      background-color: var(--color-green);
+      color: #fff;
+    }
+    
+    .status.pendiente {
+      background-color: var(--color-orange);
+      color: #fff;
+    }
+    
+    .status.cancelado {
+      background-color: var(--color-red);
+      color: #fff;
+    }
+    
+    /* ---------- Responsividad ---------- */
+    @media (min-width: 768px) {
+      .stats {
+        gap: 2rem;
+      }
+      
+      .stat-card {
+        flex: 1 1 calc(25% - 2rem); /* En pantallas medias, 4 tarjetas por fila */
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Contenedor principal para centralizar el contenido -->
+  <div class="container">
+    
+    <!-- Header semántico -->
+    <header>
+      <h1>Historial de Reservas</h1>
+      <div class="user-area">
+        <!-- Nombre del usuario -->
+        <span>Vale Fresco</span>
+        <!-- Botón de acción (ejemplo: crear nueva reserva) -->
+        <button class="btn-action" aria-label="Crear nueva reserva">Crear Reserva</button>
+      </div>
+    </header>
+    
+    <!-- Sección Dashboard: Métricas y resumen -->
+    <section class="dashboard" aria-labelledby="dashboard-heading">
+      <h2 id="dashboard-heading">Reservas Dashboard</h2>
+      <div class="stats">
+        <!-- Tarjeta de Total de Reservas -->
+        <div class="stat-card">
+          <h3>Total Reservas</h3>
+          <p>450</p>
+        </div>
+        <!-- Tarjeta de Reservas Pendientes -->
+        <div class="stat-card">
+          <h3>Pendientes</h3>
+          <p>15</p>
+        </div>
+        <!-- Tarjeta de Reservas Completadas -->
+        <div class="stat-card">
+          <h3>Completadas</h3>
+          <p>320</p>
+        </div>
+        <!-- Tarjeta de Reservas Canceladas -->
+        <div class="stat-card">
+          <h3>Canceladas</h3>
+          <p>30</p>
+        </div>
+        <!-- Puedes agregar más tarjetas según el diseño (por ejemplo, Devoluciones, Reservas Abandonadas, etc.) -->
+      </div>
+    </section>
+    
+    <!-- Sección de tabla con reservas -->
+    <section class="reservations" aria-labelledby="reservations-heading">
+      <h2 id="reservations-heading" class="visually-hidden">Tabla de Reservas</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>ID / Nombre</th>
+            <th>Fecha de Reserva</th>
+            <th>Tipo de Alojamiento</th>
+            <th>Reserva por</th>
+            <th>Monto Total</th>
+            <th>Status</th>
+            <th>Acción</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Ejemplo de fila de tabla -->
+          <tr>
+            <td>#001 - Juan Pérez</td>
+            <td>10/04/2025</td>
+            <td>Home Delivery</td>
+            <td>Online</td>
+            <td>$120.00</td>
+            <td>
+              <span class="status completado" aria-label="Completado">Completado</span>
+            </td>
+            <td>
+              <!-- Iconos o botones de acción (ej. Editar, Detalles, etc.) -->
+              <button aria-label="Ver detalles">Ver</button>
+            </td>
+          </tr>
+          <!-- Más filas se agregarán en base al dataset -->
+        </tbody>
+      </table>
+    </section>
+  
+  </div>
+  
+  <!-- Se pueden incluir scripts al final -->
+  <script>
+    // Funciones JavaScript opcionales para interactividad futura
+  </script>
+</body>
+</html>
