@@ -1,0 +1,49 @@
+# Dependencias de npm
+node_modules/
+
+# Entornos y variables de entorno
+.env
+.env.local
+.env.development
+.env.production
+
+# Configuración de IDEs y editores
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Archivos del sistema operativo
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Archivos de build y compilación
+dist/
+build/
+*.tmp
+*.log
+
+# Archivos de cache
+.cache/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Paquetes de dependencias
+jspm_packages/
+
+# Archivos de Sass/SCSS
+.sass-cache/
+
+# Archivos de testing
+coverage/
+
+# Archivos de sistemas de bundling
+*.js.map
+*.css.map
