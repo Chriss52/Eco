@@ -8,19 +8,19 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="css/perfilstyle.css" />
+    <link rel="stylesheet" href="/css/perfilstyle.css" />
   </head>
   <body>
     <!-- HEADER -->
     <header>
       <div class="navbar">
         <div class="navbar-logo">
-          <img src="assets/logo-ecostayrd.png" alt="Logo EcoStayRD" />
+          <img src="/assets/logooo.png" alt="Logo EcoStayRD" />
           <span>EcoStayRD</span>
         </div>
         <nav class="navbar-menu">
           <ul>
-            <li><a href="#">Home</a></li>
+            
             <li><a href="#">About us</a></li>
             <li><a href="login1.html">Iniciar sesión / Registrarse</a></li>
           </ul>
@@ -49,64 +49,141 @@
         <section class="profile-main">
           <h2>Información Personal</h2>
           <form class="profile-form">
-            <!-- Fila: Nombre + Apellido -->
-            <div class="form-row">
-              <div class="form-field">
-                <label for="nombre">Nombre</label>
+            <!-- Nombre -->
+            <div class="form-field">
+              <label for="nombre">Nombre</label>
+              <div class="input-icon">
                 <input
                   type="text"
                   id="nombre"
                   value="Juan"
                   placeholder="Ej: María"
                 />
+                <button
+                  type="button"
+                  class="icon-button"
+                  onclick="editarCampo('nombre')"
+                >
+                  ✏️
+                </button>
               </div>
-              <div class="form-field">
-                <label for="apellido">Apellido</label>
+            </div>
+
+            <!-- Apellido -->
+            <div class="form-field">
+              <label for="apellido">Apellido</label>
+              <div class="input-icon">
                 <input
                   type="text"
                   id="apellido"
                   value="Perez"
                   placeholder="Ej: García"
                 />
-              </div>
-            </div>
-
-            <!-- Fecha de Nacimiento -->
-            <div class="form-field">
-              <label for="fecha-nacimiento">Fecha de Nacimiento</label>
-              <input type="date" id="fecha-nacimiento" value="1886-03-15" />
-            </div>
-
-            <!-- Fila: Celular + País -->
-            <div class="form-row">
-              <div class="form-field">
-                <label for="celular">Celular</label>
-                <input type="tel" id="celular" value="+46-7644 394 68" />
-              </div>
-              <div class="form-field">
-                <label for="pais">País</label>
-                <div class="flag-container">
-                  <img src="assets/bandera-rd.png" alt="República Dominicana" />
-                  <input type="text" id="pais" value="República Dominicana" />
-                </div>
-              </div>
-            </div>
-
-            <!-- Fila: Email + Contraseña -->
-            <div class="form-row">
-              <div class="form-field">
-                <label for="correo">Correo Electrónico</label>
-                <input type="email" id="correo" value="masumranai5@gmail.com" />
-              </div>
-              <div class="form-field">
-                <label for="contrasena">Contraseña</label>
-                <div class="password-field">
-                  <input type="password" id="contrasena" value="********" />
-                  <button type="button" class="show-password">👁️</button>
-                </div>
+                <button
+                  type="button"
+                  class="icon-button"
+                  onclick="editarCampo('apellido')"
+                >
+                  ✏️
+                </button>
               </div>
             </div>
           </form>
+
+          <!-- Fecha de Nacimiento -->
+          <div class="form-field">
+            <label for="fecha-nacimiento">Fecha de Nacimiento</label>
+            <div class="input-icon">
+              <input type="date" id="fecha-nacimiento" value="1886-03-15" />
+              <button
+                type="button"
+                class="icon-button"
+                onclick="editarCampo('fecha-nacimiento')"
+              ></button>
+            </div>
+          </div>
+
+          <!-- Celular -->
+          <div class="form-row">
+            <div class="form-field">
+              <label for="celular">Celular</label>
+              <div class="input-icon">
+                <input type="tel" id="celular" value="+46-7644 394 68" />
+                <button
+                  type="button"
+                  class="icon-button"
+                  onclick="editarCampo('celular')"
+                >
+                  ✏️
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- País -->
+          <div class="form-row">
+            <div class="form-field">
+              <label for="pais">País</label>
+              <div class="input-icon">
+                <input type="text" id="pais" value="República Dominicana" />
+                <button
+                  type="button"
+                  class="icon-button"
+                  onclick="editarCampo('pais')"
+                >
+                  ✏️
+                </button>
+              </div>
+            </div>
+          </div>
+
+                    <!-- País -->
+                    <div class="form-row">
+                      <div class="form-field">
+                        <label for="pais">Sexo</label>
+                        <div class="input-icon">
+                          <input type="text" id="pais" value="Maculino-Femenino" />
+                          <button
+                            type="button"
+                            class="icon-button"
+                            onclick="editarCampo('pais')"
+                          >
+                            ✏️
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+
+          <!-- Correo y Contraseña -->
+          <div class="form-row">
+            <div class="form-field">
+              <label for="correo">Correo Electrónico</label>
+              <div class="input-icon">
+                <input type="email" id="correo" value="masumranai5@gmail.com" />
+                <button
+                  type="button"
+                  class="icon-button"
+                  onclick="editarCampo('correo')"
+                >
+                  ✏️
+                </button>
+              </div>
+            </div>
+
+            <div class="form-field">
+              <label for="contrasena">Contraseña</label>
+              <div class="input-icon">
+                <input type="password" id="contrasena" value="********" />
+                <button
+                  type="button"
+                  class="icon-button class="show-password"
+                  onclick="editarCampo('contrasena')"
+                >
+                  ✏️
+                </button>
+              </div>
+            </div>
+          </div>
         </section>
       </div>
     </main>
@@ -117,14 +194,11 @@
     </footer>
 
     <script>
-      // Script para mostrar/ocultar contraseña
-      document
-        .querySelector(".show-password")
-        .addEventListener("click", function () {
-          const passwordField = document.getElementById("contrasena");
-          passwordField.type =
-            passwordField.type === "password" ? "text" : "password";
-        });
+      function editarCampo(id) {
+        const campo = document.getElementById(id);
+        campo.focus();
+        campo.select();
+      }
     </script>
   </body>
 </html>
